@@ -11,10 +11,13 @@ class EverguardMaterial {
         this.heroSectionSelector = '[data-id="1c1a1ad"]';
         this.aboutUsSection = this.page.locator( '[data-id="67e0f15"]' );
         this.aboutUsSelector = '[data-id="67e0f15"]';
+        this.contactUsForm = this.page.locator( 'form.elementor-form[name="Contact Form"]' );
+        this.contactUsFormSelector = 'form.elementor-form[name="Contact Form"]';
 
 
         // URls
         this.homePageURL = 'https://www.everguardmaterials.com';
+        this.contactPageURL = 'https://everguardmaterials.com/contact/';
 
     }
 
@@ -24,7 +27,7 @@ class EverguardMaterial {
     }
 
     
-    // Desktop
+    
     async checkHeader() {
         await this.page.waitForSelector( this.headerSelector );
         await expect(this.header).toHaveScreenshot( 'header.png');
@@ -43,6 +46,18 @@ class EverguardMaterial {
     async checkAboutUsSection() {
         await this.page.waitForSelector( this.aboutUsSelector );
         await expect(this.aboutUsSection).toHaveScreenshot( 'aboutUs.png')
+    }
+
+
+    // Contact Page
+    async goToContactPage(){
+        await this.page.goto(this.contactPageURL, { waitUntil: 'networkidle' });
+        await this.page.waitForTimeout( 2000 );
+    };
+
+    async checkContactForm() {
+        await this.page.waitForSelector( this.contactUsFormSelector );
+        await expect(this.contactUsForm).toHaveScreenshot( 'contactForm.png')
     }
 }
 
