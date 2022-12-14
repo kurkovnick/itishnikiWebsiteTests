@@ -20,12 +20,6 @@ class EverguardMaterial {
         this.contactPageURL = 'https://everguardmaterials.com/contact/';
 
     }
-
-    async gotoHomePage() {
-        await this.page.goto(this.homePageURL, { waitUntil: 'networkidle' });
-        await this.page.waitForTimeout( 2000 );
-    }
-
     
     
     async checkHeader() {
@@ -50,9 +44,18 @@ class EverguardMaterial {
 
 
     // Contact Page
-    async goToContactPage(){
-        await this.page.goto(this.contactPageURL, { waitUntil: 'networkidle' });
+    async goToPage(url){
+        let requestFailed = []
+        this.page.on( 'request' , async request => {
+            if( request.failure() !== null && request.url().includes( '.css' ) ){requestFailed.push(request.url())}
+        });
+      
+        //Go to the URL and scroll to the bottom so that the network can idle on the whole pages
+        await this.page.goto(url, { waitUntil: 'networkidle' });
         await this.page.waitForTimeout( 2000 );
+        
+        //Validate Broken CSS Requests
+        await expect(requestFailed, `Failed Assets: ${requestFailed.toString()}` ).toEqual( [] )
     };
 
     async checkContactForm() {
