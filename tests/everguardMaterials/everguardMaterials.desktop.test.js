@@ -13,12 +13,17 @@ test.beforeEach( async ( {page} ) => {
 
 test.only('Header Looks Good', async () => {
     await helper.gotoHomePage();
-    await helper.checkdesktopHeader();
+    await helper.checkHeader();
+} );
+
+test.only('Footer Looks Good', async () => {
+    await helper.gotoHomePage();
+    await helper.checkHeader();
 } );
 
 test.only('Hero Section Looks Good', async () => {
     await helper.gotoHomePage();
-    await helper.checkdesktopHeroSection();
+    await helper.checkHeroSection();
 } );
 
 test.only('About Us Section Looks Good', async () => {
