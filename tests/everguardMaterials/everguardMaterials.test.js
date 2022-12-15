@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test' );
 const { projects } = require('../../playwright.config');
 const { POManager } = require( '../utils/POManager' );
-const testURLList = JSON.parse(JSON.stringify(require('../everguardMaterials/everGuardMaterials.data.json')))
+const testURLList = JSON.parse(JSON.stringify(require('./everGuardMaterials.data.json')))
 
 let poManager = {};
 let helper = {};
@@ -39,6 +39,16 @@ test.describe('Contact Page Tests', () => {
         await helper.goToPage(helper.contactPageURL);
         await helper.checkContactForm();
     } );
+} );
+
+
+test.describe('Check CTA Buttons Page Tests', () => {
+    
+    for(let i = 0; i < Object.keys(testURLList.pageURLs).length; i++){
+        test(`${Object.keys(testURLList.pageURLs)[i]}`, async ({ page, }) => {
+            await helper.checkButtons(page, Object.values(testURLList.pageURLs)[i]);
+        });
+      };
 } );
 
 
