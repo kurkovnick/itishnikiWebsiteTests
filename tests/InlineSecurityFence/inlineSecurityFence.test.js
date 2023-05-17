@@ -27,7 +27,7 @@ test.describe('Home Page', () => {
     } );
 
     test('Hero Text Section Looks Good', async ( {page} ) => {
-        await page.goto(data.pageURLs.homePage);
+        await page.goto(data.pageURLs.homePage, { waitUntil: 'networkidle' });
         await helper.checkHeroTextSection();
     } );
 } );

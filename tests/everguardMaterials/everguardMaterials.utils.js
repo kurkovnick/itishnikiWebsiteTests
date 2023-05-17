@@ -99,7 +99,7 @@ class EverguardMaterial {
       
         //Go to the URL and scroll to the bottom so that the network can idle on the whole pages
         await this.page.goto(url, { waitUntil: 'networkidle' });
-        await this.page.waitForTimeout( 2000 );
+        await this.page.waitForTimeout( 5000 );
         
         //Validate Broken CSS Requests
         await expect(requestFailed, `Failed Assets: ${requestFailed.toString()}` ).toEqual( [] )
