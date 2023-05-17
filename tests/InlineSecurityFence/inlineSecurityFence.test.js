@@ -30,13 +30,6 @@ test.describe('Home Page', () => {
         await page.goto(data.pageURLs.homePage);
         await helper.checkHeroTextSection();
     } );
-
-    test.only('Check Artifacts', async ( {page} ) => {
-        await page.goto(data.pageURLs.homePage);
-        await expect(page).toHaveURL('itishniki.com');
-    } );
-
-
 } );
 
 
