@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "everguardMaterials" : "npx playwright test everguardMaterials.test.js",
+    "inlineSecurityFence" : "npx playwright test inlineSecurityFence.test.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
