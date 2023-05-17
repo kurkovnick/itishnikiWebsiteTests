@@ -47,7 +47,7 @@ test.describe('Material Calulator Page', () => {
         await helper.checkFeaturesSection();
     } );
 
-    test.only('User is able to fill out the form to see the "Email Materials" button', async ( { page } ) => {
+    test('User is able to fill out the form to see the "Email Materials" button', async ( { page } ) => {
         await helper.goToPage(helper.materialCalculatorURL);
         await helper.fenceStyleField.selectOption('Hog Wire')
         await helper.approximateLinealFeet.type('85');
