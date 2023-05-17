@@ -10,10 +10,14 @@ test.beforeEach( async ( {page} ) => {
     helper = poManager.getInlineSecurityFenceUtils( page );
 } );
 
-    test('Hero Get a Free Quote Button works', async ( { page } ) => {
-        await page.goto('https:www.itishniki.com');
-        await expect(page).toHaveURL('itishniki.org')
-    } );
+test.describe('Check CTA Buttons Page Tests', () => {
+    
+    for(let i = 0; i < Object.keys(data.pageURLs).length; i++){
+        test(`${Object.keys(data.pageURLs)[i]}`, async ({ page, }) => {
+            await helper.checkButtons(page, Object.values(data.pageURLs)[i]);
+        });
+    };
+} );
 
 
 

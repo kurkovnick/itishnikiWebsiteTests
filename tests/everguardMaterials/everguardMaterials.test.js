@@ -63,7 +63,7 @@ test.describe('Check CTA Buttons Page Tests', () => {
         test(`${Object.keys(data.pageURLs)[i]}`, async ({ page, }) => {
             await helper.checkButtons(page, Object.values(data.pageURLs)[i]);
         });
-      };
+    };
 } );
 
 
