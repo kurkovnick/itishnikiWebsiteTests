@@ -50,7 +50,7 @@ class EverguardMaterial {
                     await linkSelector.nth(i).click();
                     await this.page.waitForLoadState( 'load' );
                     await expect(got404).toEqual( [] );
-                    await this.page.goto(url, {waitUntil : "domcontentloaded"});
+                    await this.page.goto(url, {waitUntil : "networkidle"});
                 };
             } else if(await linkSelector.nth(i).getAttribute("target") == '_blank' ){
                 let got404 = []
@@ -63,7 +63,7 @@ class EverguardMaterial {
                 ]);
                 await newTabPage.waitForLoadState( 'load' );
                 await expect(got404).toEqual( [] );
-                await this.page.goto(url, {waitUntil : "domcontentloaded"})
+                await this.page.goto(url, {waitUntil : "networkidle"})
             };
         };
     }
