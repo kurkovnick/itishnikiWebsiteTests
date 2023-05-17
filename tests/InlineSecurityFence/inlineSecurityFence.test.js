@@ -10,13 +10,33 @@ test.beforeEach( async ( {page} ) => {
     helper = poManager.getInlineSecurityFenceUtils( page );
 } );
 
-test.describe('Check CTA Buttons Page Tests', () => {
+test.describe('Check CTA Buttons on Pages Tests', () => {
     
     for(let i = 0; i < Object.keys(data.pageURLs).length; i++){
         test(`${Object.keys(data.pageURLs)[i]}`, async ({ page, }) => {
             await helper.checkButtons(page, Object.values(data.pageURLs)[i]);
         });
     };
+} );
+
+test.describe('Home Page', () => {
+    
+    test('Header Looks Good', async ( {page} ) => {
+        await page.goto(data.pageURLs.homePage);
+        await helper.checkHeader();
+    } );
+
+    test('Hero Text Section Looks Good', async ( {page} ) => {
+        await page.goto(data.pageURLs.homePage);
+        await helper.checkHeroTextSection();
+    } );
+
+    test.only('Check Artifacts', async ( {page} ) => {
+        await page.goto(data.pageURLs.homePage);
+        await expect(page).toHaveURL('itishniki.com');
+    } );
+
+
 } );
 
 

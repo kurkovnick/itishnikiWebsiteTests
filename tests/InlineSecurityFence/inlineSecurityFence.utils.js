@@ -4,6 +4,10 @@ class InlineSecurityFence {
     constructor (page) {
         this.page = page;
         this.heroGetAFreeQuoteButton = this.page.locator( '[data-id="190d943"] [aria-label="Get a Free Quote"]' );
+        this.headerSelector = '[data-elementor-type="header"]';
+        this.header = this.page.locator('[data-elementor-type="header"]');
+        this.heroTextSectionSelector = '[data-id="ffe3508"]';
+        this.heroTextSection = this.page.locator('[data-id="ffe3508"]');
     }
 
     async checkButtons(page, url){
@@ -43,10 +47,20 @@ class InlineSecurityFence {
         };
     }
     
-    // async checkHeader() {
-    //     await this.page.waitForSelector( this.headerSelector );
-    //     await expect(this.header).toHaveScreenshot( 'header.png');
-    // }
+    async checkHeader() {
+        await this.page.waitForSelector( this.headerSelector );
+        await expect(this.header).toHaveScreenshot( 'header.png');
+    }
+
+    async checkHeroTextSection() {
+        await this.page.waitForSelector( this.heroTextSectionSelector );
+        await expect(this.heroTextSection).toHaveScreenshot( 'heroTextSection.png');
+    }
+
+
+
+
+    
 
     
 
