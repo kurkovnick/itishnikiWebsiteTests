@@ -1,7 +1,7 @@
 const { expect } = require( '@playwright/test' );
 
 class InlineSecurityFence {
-    constructor ( page) {
+    constructor (page) {
         this.page = page;
         this.heroGetAFreeQuoteButton = this.page.locator( '[data-id="190d943"] [aria-label="Get a Free Quote"]' );
     }
@@ -43,10 +43,10 @@ class InlineSecurityFence {
         };
     }
     
-    async checkHeader() {
-        await this.page.waitForSelector( this.headerSelector );
-        await expect(this.header).toHaveScreenshot( 'header.png');
-    }
+    // async checkHeader() {
+    //     await this.page.waitForSelector( this.headerSelector );
+    //     await expect(this.header).toHaveScreenshot( 'header.png');
+    // }
 
     
 

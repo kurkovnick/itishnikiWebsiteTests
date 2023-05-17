@@ -1,3 +1,4 @@
+const { test, expect, page } = require('@playwright/test' );
 const { EverguardMaterial } = require( '../everguardMaterials/everguardMaterials.utils');
 const { InlineSecurityFence } = require( '../InlineSecurityFence/inlineSecurityFence.utils');
 

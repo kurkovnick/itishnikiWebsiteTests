@@ -13,16 +13,26 @@ class EverguardMaterial {
         this.aboutUsSelector = '[data-id="67e0f15"]';
         this.contactUsForm = this.page.locator( 'form.elementor-form[name="Contact Form"]' );
         this.contactUsFormSelector = 'form.elementor-form[name="Contact Form"]';
+        this.seeInventoryButton = this.page.locator('[aria-label="See Inventory"]')
+
+        //Material Calculator
+        this.featuresSectionSelector = '[data-id="c9e4cbc"]';
+        this.featuresSection = this.page.locator('[data-id="c9e4cbc"]');
+        this.fenceStyleField = this.page.locator('#fieldname1_1');
+        this.approximateLinealFeet = this.page.locator( '#fieldname4_1');
+        this.emailField = this.page.locator( '#fieldname30_1' );
+        this.emailMaterialsButton = this.page.locator('.pbSubmit[tabindex="0"]')
 
 
         // URls
         this.homePageURL = 'https://www.everguardmaterials.com';
         this.contactPageURL = 'https://everguardmaterials.com/contact/';
+        this.materialCalculatorURL = 'https://everguardmaterials.com/material-calculator/';
 
     }
 
     async checkButtons(page, url){
-        let linkSelector = this.page.locator( 'a.elementor-button.elementor-size-sm:visible' );
+        let linkSelector = this.page.locator( 'a.elementor-button' );
         await this.page.goto(url, {waitUntil : "load"});
         let buttonCount = await linkSelector.count();
         for (let i =0; i < buttonCount; i++ ){
@@ -30,7 +40,7 @@ class EverguardMaterial {
             await expect(await linkSelector.nth(i).getAttribute("href"), `Link: ${await linkSelector.nth(i).innerHTML()} accidently contains a placeholder` ).not.toEqual( '#' );
             let link = await linkSelector.nth(i).getAttribute("href");
             if(await linkSelector.nth(i).getAttribute("target") === null){;
-                if(await linkSelector.nth(i).getAttribute("href") == null || (await linkSelector.nth(i).getAttribute("href")).includes( '#' ) && (await linkSelector.nth(i).getAttribute("href")).length >= 1 || (await linkSelector.nth(i).getAttribute("href")).includes( '.zip' ) || (await linkSelector.nth(i).getAttribute("href")).includes( 'mailto:' )){
+                if(await linkSelector.nth(i).getAttribute("href") == null || (await linkSelector.nth(i).getAttribute("href")).includes( '#' ) && (await linkSelector.nth(i).getAttribute("href")).length >= 1 || (await linkSelector.nth(i).getAttribute("href")).includes( '.zip' ) || (await linkSelector.nth(i).getAttribute("href")).includes( 'mailto:' ) || (await linkSelector.nth(i).getAttribute("href")).includes( 'tel:' ) ){
                     continue;
                 } else {
                     let got404 = []
@@ -58,6 +68,7 @@ class EverguardMaterial {
         };
     }
     
+    // Home Page
     async checkHeader() {
         await this.page.waitForSelector( this.headerSelector );
         await expect(this.header).toHaveScreenshot( 'header.png');
@@ -97,6 +108,12 @@ class EverguardMaterial {
     async checkContactForm() {
         await this.page.waitForSelector( this.contactUsFormSelector );
         await expect(this.contactUsForm).toHaveScreenshot( 'contactForm.png')
+    }
+
+    // Home Page
+    async checkFeaturesSection() {
+        await this.page.waitForSelector( this.featuresSectionSelector );
+        await expect(this.featuresSection).toHaveScreenshot( 'features.png');
     }
 }
 

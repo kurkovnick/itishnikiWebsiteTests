@@ -1,7 +1,7 @@
-const { test, expect } = require('@playwright/test' );
-const { projects } = require('../../playwright.config');
+const { test, expect, page } = require( '@playwright/test' );
+//const { projects } = require('../../playwright.config');
 const { POManager } = require( '../utils/POManager' );
-const testURLList = JSON.parse(JSON.stringify(require('./everGuardMaterials.data.json')))
+const data = JSON.parse(JSON.stringify(require('./everGuardMaterials.data.json')))
 
 let poManager = {};
 let helper = {};
@@ -41,12 +41,27 @@ test.describe('Contact Page Tests', () => {
     } );
 } );
 
+test.describe('Material Calulator Page', () => {
+    test('Material Calculator Features Section Looks Good', async () => {
+        await helper.goToPage(helper.materialCalculatorURL);
+        await helper.checkFeaturesSection();
+    } );
+
+    test.only('User is able to fill out the form to see the "Email Materials" button', async ( { page } ) => {
+        await helper.goToPage(helper.materialCalculatorURL);
+        await helper.fenceStyleField.selectOption('Hog Wire')
+        await helper.approximateLinealFeet.type('85');
+        await helper.emailField.type( 'tester@testing.com' );
+        await expect(helper.emailMaterialsButton).toHaveCSS('opacity', '1');
+    } );
+} );
+
 
 test.describe('Check CTA Buttons Page Tests', () => {
     
-    for(let i = 0; i < Object.keys(testURLList.pageURLs).length; i++){
-        test(`${Object.keys(testURLList.pageURLs)[i]}`, async ({ page, }) => {
-            await helper.checkButtons(page, Object.values(testURLList.pageURLs)[i]);
+    for(let i = 0; i < Object.keys(data.pageURLs).length; i++){
+        test(`${Object.keys(data.pageURLs)[i]}`, async ({ page, }) => {
+            await helper.checkButtons(page, Object.values(data.pageURLs)[i]);
         });
       };
 } );

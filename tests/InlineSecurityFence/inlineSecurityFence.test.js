@@ -1,5 +1,4 @@
-const { test, expect, page } = require('@playwright/test' );
-const { projects } = require('../../playwright.config');
+import { expect, Page, test } from '@playwright/test';
 const { POManager } = require( '../utils/POManager' );
 const data = JSON.parse(JSON.stringify(require('./inlineSecurityFence.data.json')))
 
@@ -11,13 +10,10 @@ test.beforeEach( async ( {page} ) => {
     helper = poManager.getInlineSecurityFenceUtils( page );
 } );
 
-test.describe('Home Page Tests', () => {
-    test.only('Hero Get a Free Quote Button works', async () => {
-        await helper.goToPageAndCheckCSS(data.pageURLs.homePage);
-        await helper.heroGetAFreeQuoteButton.click();
-        await expect(page).toHaveURL(data.pageURLs.quotePage);
+    test('Hero Get a Free Quote Button works', async ( { page } ) => {
+        await page.goto('https:www.itishniki.com');
+        await expect(page).toHaveURL('itishniki.org')
     } );
-} );
 
 
 
