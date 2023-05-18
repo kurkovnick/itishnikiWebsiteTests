@@ -42,7 +42,7 @@ test.describe('Contact Page Tests', () => {
 } );
 
 test.describe('Material Calulator Page', () => {
-    test.only('Material Calculator Page Title Section Looks Good', async () => {
+    test('Material Calculator Page Title Section Looks Good', async () => {
         await helper.goToPage(helper.materialCalculatorURL);
         await helper.checkPageTitleSection();
     } );
