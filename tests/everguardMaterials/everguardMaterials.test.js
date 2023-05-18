@@ -42,9 +42,9 @@ test.describe('Contact Page Tests', () => {
 } );
 
 test.describe('Material Calulator Page', () => {
-    test('Material Calculator Features Section Looks Good', async () => {
+    test.only('Material Calculator Page Title Section Looks Good', async () => {
         await helper.goToPage(helper.materialCalculatorURL);
-        await helper.checkFeaturesSection();
+        await helper.checkPageTitleSection();
     } );
 
     test('User is able to fill out the form to see the "Email Materials" button', async ( { page } ) => {

@@ -16,8 +16,8 @@ class EverguardMaterial {
         this.seeInventoryButton = this.page.locator('[aria-label="See Inventory"]')
 
         //Material Calculator
-        this.featuresSectionSelector = '[data-id="c9e4cbc"]';
-        this.featuresSection = this.page.locator('[data-id="c9e4cbc"]');
+        this.pageTitleSectionSelector = '[data-id="4ca31c0"] h2';
+        this.pageTitleSection = this.page.locator('[data-id="4ca31c0"] h2');
         this.fenceStyleField = this.page.locator('#fieldname1_1');
         this.approximateLinealFeet = this.page.locator( '#fieldname4_1');
         this.emailField = this.page.locator( '#fieldname30_1' );
@@ -111,9 +111,9 @@ class EverguardMaterial {
     }
 
     // Home Page
-    async checkFeaturesSection() {
-        await this.page.waitForSelector( this.featuresSectionSelector );
-        await expect(this.featuresSection).toHaveScreenshot( 'features.png');
+    async checkPageTitleSection() {
+        await this.page.waitForSelector( this.pageTitleSectionSelector );
+        await expect(this.pageTitleSection).toHaveScreenshot( 'CalculatorPageTitle.png');
     }
 }
 
