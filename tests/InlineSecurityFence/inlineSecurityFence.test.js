@@ -26,7 +26,7 @@ test.describe('Home Page', () => {
         await helper.checkHeader();
     } );
 
-    test('Hero Text Section Looks Good', async ( {page} ) => {
+    test('Hero Text Section Looks Good ', async ( {page} ) => {
         await page.goto(data.pageURLs.homePage, { waitUntil: 'networkidle' });
         await helper.checkHeroTextSection();
     } );
