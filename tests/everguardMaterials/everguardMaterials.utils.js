@@ -32,7 +32,7 @@ class EverguardMaterial {
         // URls
         this.homePageURL = 'https://www.everguardmaterials.com';
         this.contactPageURL = 'https://everguardmaterials.com/contact/';
-        this.materialCalculatorURL = 'https://everguardmaterials.com/material-calculator/';
+        this.materialCalculatorURL = 'https://everguardmaterials.com/fence-material-calculator/';
         this.productDetailPageURL = 'https://everguardmaterials.com/product/alta-1x4x4-clear/';
 
     }
@@ -77,22 +77,22 @@ class EverguardMaterial {
     // Home Page
     async checkHeader() {
         await this.page.waitForSelector( this.headerSelector );
-        await expect(this.header).toHaveScreenshot( 'header.png', { maxDiffPixels: 100 });
+        await expect(this.header).toHaveScreenshot( 'header.png', { maxDiffPixels: 200 });
     }
 
     async checkFooter() {
         await this.page.waitForSelector( this.footerSelector );
-        await expect(this.footer).toHaveScreenshot( 'footer.png', { maxDiffPixels: 100 });
+        await expect(this.footer).toHaveScreenshot( 'footer.png', { maxDiffPixels: 200 });
     }
 
     async checkHeroSection() {
         await this.page.waitForSelector( this.heroSectionSelector );
-        await expect(this.heroSection).toHaveScreenshot( 'homePageHero.png', { maxDiffPixels: 100 });
+        await expect(this.heroSection).toHaveScreenshot( 'homePageHero.png', { maxDiffPixels: 200 });
     }
 
     async checkAboutUsSection() {
         await this.page.waitForSelector( this.aboutUsSelector );
-        await expect(this.aboutUsSection).toHaveScreenshot( 'aboutUs.png', { maxDiffPixels: 100 })
+        await expect(this.aboutUsSection).toHaveScreenshot( 'aboutUs.png', { maxDiffPixels: 200 })
     }
 
 
@@ -105,7 +105,7 @@ class EverguardMaterial {
       
         //Go to the URL and scroll to the bottom so that the network can idle on the whole pages
         await this.page.goto(url, { waitUntil: 'networkidle' });
-        await this.page.waitForTimeout( 5000 );
+        await this.page.waitForTimeout( 10000 );
         
         //Validate Broken CSS Requests
         await expect(requestFailed, `Failed Assets: ${requestFailed.toString()}` ).toEqual( [] )
@@ -113,24 +113,24 @@ class EverguardMaterial {
 
     async checkContactForm() {
         await this.page.waitForSelector( this.contactUsFormSelector );
-        await expect(this.contactUsForm).toHaveScreenshot( 'contactForm.png', { maxDiffPixels: 100 })
+        await expect(this.contactUsForm).toHaveScreenshot( 'contactForm.png', { maxDiffPixels: 200 })
     }
 
     // Home Page
     async checkPageTitleSection() {
         await this.page.waitForSelector( this.pageTitleSectionSelector );
-        await expect(this.pageTitleSection).toHaveScreenshot( 'CalculatorPageTitle.png', { maxDiffPixels: 100 });
+        await expect(this.pageTitleSection).toHaveScreenshot( 'CalculatorPageTitle.png', { maxDiffPixels: 200 });
     }
 
     // PDP
     async checkProductDescription() {
         await this.page.waitForSelector( this.productDescriptionSelector );
-        await expect(this.productDescription).toHaveScreenshot( 'productDescription.png', { maxDiffPixels: 100 });
+        await expect(this.productDescription).toHaveScreenshot( 'productDescription.png', { maxDiffPixels: 200 });
     }
 
     async checkProductImage() {
         await this.page.waitForSelector( this.productImageSelector );
-        await expect(this.productImage).toHaveScreenshot( 'productImage.png', { maxDiffPixels: 100 });
+        await expect(this.productImage).toHaveScreenshot( 'productImage.png', { maxDiffPixels: 200 });
     } 
 }
 

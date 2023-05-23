@@ -69,15 +69,14 @@ test.describe('Check CTA Buttons Page Tests ', () => {
 
 test.describe('PDP Tests ', () => {
     test(`Product Description section looks good`, async ({ page, }) => {
-        await helper.goToPage(data.pageURLs.alta1x4x4ClearPage);
+        await helper.goToPage(helper.productDetailPageURL);
         await helper.checkProductDescription();
     }); 
 
     test(`Product Images looks good`, async ({ page, }) => {
-        await helper.goToPage(data.pageURLs.alta1x4x4ClearPage);
+        await helper.goToPage(helper.productDetailPageURL);
         await helper.checkProductImage();
     });
-
 } );
 
 
