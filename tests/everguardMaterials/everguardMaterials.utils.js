@@ -130,11 +130,7 @@ class EverguardMaterial {
     async checkProductImage() {
         await this.page.waitForSelector( this.productImageSelector );
         await expect(this.productImage).toHaveScreenshot( 'productImage.png', { maxDiffPixels: 100 });
-    }
-
-
-
-    
+    } 
 }
 
 module.exports = { EverguardMaterial };
