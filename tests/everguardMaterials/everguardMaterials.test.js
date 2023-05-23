@@ -1,7 +1,8 @@
 const { test, expect, page } = require( '@playwright/test' );
 //const { projects } = require('../../playwright.config');
 const { POManager } = require( '../utils/POManager' );
-const data = JSON.parse(JSON.stringify(require('./everGuardMaterials.data.json')))
+const data = JSON.parse(JSON.stringify(require('./everGuardMaterials.data.json')));
+import { defineConfig } from '@playwright/test';
 
 let poManager = {};
 let helper = {};
@@ -64,6 +65,19 @@ test.describe('Check CTA Buttons Page Tests ', () => {
             await helper.checkButtons(page, Object.values(data.pageURLs)[i]);
         });
     };
+} );
+
+test.describe('PDP Tests ', () => {
+    test(`Product Description section looks good`, async ({ page, }) => {
+        await helper.goToPage(data.pageURLs.alta1x4x4ClearPage);
+        await helper.checkProductDescription();
+    }); 
+
+    test(`Product Images looks good`, async ({ page, }) => {
+        await helper.goToPage(data.pageURLs.alta1x4x4ClearPage);
+        await helper.checkProductImage();
+    });
+
 } );
 
 

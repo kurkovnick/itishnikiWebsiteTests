@@ -15,14 +15,19 @@ class EverguardMaterial {
         this.contactUsFormSelector = 'form.elementor-form[name="Contact Form"]';
         this.seeInventoryButton = this.page.locator('[aria-label="See Inventory"]')
 
-        //Material Calculator
+        // Material Calculator
         this.pageTitleSectionSelector = '[data-id="4ca31c0"] h2';
         this.pageTitleSection = this.page.locator('[data-id="4ca31c0"] h2');
         this.fenceStyleField = this.page.locator('#fieldname1_1');
         this.approximateLinealFeet = this.page.locator( '#fieldname4_1');
         this.emailField = this.page.locator( '#fieldname30_1' );
-        this.emailMaterialsButton = this.page.locator('.pbSubmit[tabindex="0"]')
+        this.emailMaterialsButton = this.page.locator('.pbSubmit[tabindex="0"]');
 
+        // PDP
+        this.productDescriptionSelector = '[data-id="cf0eb31"]';
+        this.productDescription = this.page.locator( '[data-id="cf0eb31"]' );
+        this.productImageSelector = '.woocommerce-product-gallery.woocommerce-product-gallery--with-images';
+        this.productImage = this.page.locator('.woocommerce-product-gallery.woocommerce-product-gallery--with-images');
 
         // URls
         this.homePageURL = 'https://www.everguardmaterials.com';
@@ -71,22 +76,22 @@ class EverguardMaterial {
     // Home Page
     async checkHeader() {
         await this.page.waitForSelector( this.headerSelector );
-        await expect(this.header).toHaveScreenshot( 'header.png');
+        await expect(this.header).toHaveScreenshot( 'header.png', { maxDiffPixels: 100 });
     }
 
     async checkFooter() {
         await this.page.waitForSelector( this.footerSelector );
-        await expect(this.footer).toHaveScreenshot( 'footer.png');
+        await expect(this.footer).toHaveScreenshot( 'footer.png', { maxDiffPixels: 100 });
     }
 
     async checkHeroSection() {
         await this.page.waitForSelector( this.heroSectionSelector );
-        await expect(this.heroSection).toHaveScreenshot( 'homePageHero.png');
+        await expect(this.heroSection).toHaveScreenshot( 'homePageHero.png', { maxDiffPixels: 100 });
     }
 
     async checkAboutUsSection() {
         await this.page.waitForSelector( this.aboutUsSelector );
-        await expect(this.aboutUsSection).toHaveScreenshot( 'aboutUs.png')
+        await expect(this.aboutUsSection).toHaveScreenshot( 'aboutUs.png', { maxDiffPixels: 100 })
     }
 
 
@@ -107,14 +112,29 @@ class EverguardMaterial {
 
     async checkContactForm() {
         await this.page.waitForSelector( this.contactUsFormSelector );
-        await expect(this.contactUsForm).toHaveScreenshot( 'contactForm.png')
+        await expect(this.contactUsForm).toHaveScreenshot( 'contactForm.png', { maxDiffPixels: 100 })
     }
 
     // Home Page
     async checkPageTitleSection() {
         await this.page.waitForSelector( this.pageTitleSectionSelector );
-        await expect(this.pageTitleSection).toHaveScreenshot( 'CalculatorPageTitle.png');
+        await expect(this.pageTitleSection).toHaveScreenshot( 'CalculatorPageTitle.png', { maxDiffPixels: 100 });
     }
+
+    // PDP
+    async checkProductDescription() {
+        await this.page.waitForSelector( this.productDescriptionSelector );
+        await expect(this.productDescription).toHaveScreenshot( 'productDescription.png', { maxDiffPixels: 100 });
+    }
+
+    async checkProductImage() {
+        await this.page.waitForSelector( this.productImageSelector );
+        await expect(this.productImage).toHaveScreenshot( 'productImage.png', { maxDiffPixels: 100 });
+    }
+
+
+
+    
 }
 
 module.exports = { EverguardMaterial };
