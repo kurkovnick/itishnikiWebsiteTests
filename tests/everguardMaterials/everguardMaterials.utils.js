@@ -33,6 +33,7 @@ class EverguardMaterial {
         this.homePageURL = 'https://www.everguardmaterials.com';
         this.contactPageURL = 'https://everguardmaterials.com/contact/';
         this.materialCalculatorURL = 'https://everguardmaterials.com/material-calculator/';
+        this.productDetailPageURL = 'https://everguardmaterials.com/product/alta-1x4x4-clear/';
 
     }
 
