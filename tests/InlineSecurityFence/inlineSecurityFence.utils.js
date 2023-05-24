@@ -52,15 +52,12 @@ class InlineSecurityFence {
         await expect(this.header).toHaveScreenshot( 'header.png', { maxDiffPixels: 100 });
     }
 
+    
+    // Home Page
     async checkHeroTextSection() {
         await this.page.waitForSelector( this.heroTextSectionSelector );
         await expect(this.heroTextSection).toHaveScreenshot( 'heroTextSection.png', { maxDiffPixels: 100 });
     }
-
-
-
-
-    
 
     
 
