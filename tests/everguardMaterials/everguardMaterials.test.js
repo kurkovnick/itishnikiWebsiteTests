@@ -73,7 +73,7 @@ test.describe('PDP Tests ', () => {
         await helper.checkProductDescription();
     }); 
 
-    test(`Product Images looks good`, async ({ page, }) => {
+    test(`Product Images looks good `, async ({ page, }) => {
         await helper.goToPage(helper.productDetailPageURL);
         await helper.checkProductImage();
     });
