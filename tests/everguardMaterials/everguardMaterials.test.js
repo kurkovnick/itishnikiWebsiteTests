@@ -15,21 +15,25 @@ test.beforeEach( async ( {page} ) => {
 test.describe('Home Page Tests', () => {
     test('Header Looks Good', async () => {
         await helper.goToPage(helper.homePageURL);
+        await helper.closePopup();
         await helper.checkHeader();
     } );
 
     test('Footer Looks Good', async () => {
         await helper.goToPage(helper.homePageURL);
-        await helper.checkHeader();
+        await helper.closePopup();
+        await helper.checkFooter();
     } );
 
     test('Hero Section Looks Good', async () => {
         await helper.goToPage(helper.homePageURL);
+        await helper.closePopup();
         await helper.checkHeroSection();
     } );
 
     test('About Us Section Looks Good', async () => {
         await helper.goToPage(helper.homePageURL);
+        await helper.closePopup();
         await helper.checkAboutUsSection();
     } );
 } );

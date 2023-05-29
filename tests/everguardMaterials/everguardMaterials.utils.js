@@ -75,6 +75,12 @@ class EverguardMaterial {
     }
     
     // Home Page
+    async closePopup() {
+        await this.page.locator('[aria-label="Close"]').waitFor({state: 'visible'});
+        await this.page.locator('[aria-label="Close"]').click();
+        await this.page.waitForTimeout(3000)
+    }
+    
     async checkHeader() {
         await this.page.waitForSelector( this.headerSelector );
         await expect(this.header).toHaveScreenshot( 'header.png', { maxDiffPixels: 200 });
