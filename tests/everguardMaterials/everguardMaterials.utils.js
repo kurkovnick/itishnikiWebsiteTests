@@ -78,7 +78,7 @@ class EverguardMaterial {
     async closePopup() {
         await this.page.locator('[aria-label="Close"]').waitFor({state: 'visible'});
         await this.page.locator('[aria-label="Close"]').click();
-        await this.page.waitForTimeout(3000)
+        await this.page.waitForTimeout(4000)
     }
     
     async checkHeader() {
