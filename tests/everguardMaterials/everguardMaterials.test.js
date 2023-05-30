@@ -62,7 +62,7 @@ test.describe('Material Calulator Page', () => {
 } );
 
 
-test.describe('Check CTA Buttons Page Tests ', () => {
+test.describe('Check CTA Buttons Page Tests', () => {
     
     for(let i = 0; i < Object.keys(data.pageURLs).length; i++){
         test(`${Object.keys(data.pageURLs)[i]}`, async ({ page, }) => {
