@@ -15,25 +15,21 @@ test.beforeEach( async ( {page} ) => {
 test.describe('Home Page Tests', () => {
     test('Header Looks Good', async () => {
         await helper.goToPage(helper.homePageURL);
-        await helper.closePopup();
         await helper.checkHeader();
     } );
 
     test('Footer Looks Good', async () => {
-        await helper.goToPage(helper.homePageURL);
-        await helper.closePopup();
+        await helper.goToPage(helper.materialCalculatorURL);
         await helper.checkFooter();
     } );
 
     test('Hero Section Looks Good', async () => {
         await helper.goToPage(helper.homePageURL);
-        await helper.closePopup();
         await helper.checkHeroSection();
     } );
 
     test('About Us Section Looks Good', async () => {
         await helper.goToPage(helper.homePageURL);
-        await helper.closePopup();
         await helper.checkAboutUsSection();
     } );
 } );
@@ -77,7 +73,7 @@ test.describe('PDP Tests ', () => {
         await helper.checkProductDescription();
     }); 
 
-    test(`Product Images looks good`, async ({ page, }) => {
+    test(`Product Images looks good `, async ({ page, }) => {
         await helper.goToPage(helper.productDetailPageURL);
         await helper.checkProductImage();
     });
