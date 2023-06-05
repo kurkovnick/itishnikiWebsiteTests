@@ -11,7 +11,7 @@ class InlineSecurityFence {
     }
 
     async checkButtons(page, url){
-        let linkSelector = this.page.locator( 'a.elementor-button:not( [data-elementor-type="popup"] *)' );
+        let linkSelector = this.page.locator( 'a.elementor-button:not( [data-id="1f1ef0c"] *)' );
         await this.page.goto(url, {waitUntil : "networkidle"});
         let buttonCount = await linkSelector.count();
         for (let i =0; i < buttonCount; i++ ){
