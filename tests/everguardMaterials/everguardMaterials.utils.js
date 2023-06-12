@@ -38,7 +38,7 @@ class EverguardMaterial {
     }
 
     async checkButtons(page, url){
-        let linkSelector = this.page.locator( 'a.elementor-button:not( [data-elementor-type="popup"] *)' );
+        let linkSelector = this.page.locator( 'a.elementor-button-link:not( [data-elementor-type="popup"] *)' );
         await this.page.goto(url, {waitUntil : "load"});
         let buttonCount = await linkSelector.count();
         for (let i =0; i < buttonCount; i++ ){
