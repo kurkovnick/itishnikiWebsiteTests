@@ -28,7 +28,7 @@ test.describe('Home Page Tests', () => {
         await helper.checkHeroSection();
     } );
 
-    test.only('About Us Section Looks Good', async ( {page} ) => {
+    test('About Us Section Looks Good', async ( {page} ) => {
         await helper.goToPage(helper.homePageURL);
         await page.waitForTimeout(5000)
         await helper.checkAboutUsSection();
