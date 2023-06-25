@@ -11,8 +11,8 @@ class EverguardMaterial {
         this.heroSectionSelector = '[data-id="1c1a1ad"]';
         this.aboutUsSection = this.page.locator( '[data-id="67e0f15"]' );
         this.aboutUsSelector = '[data-id="67e0f15"]';
-        this.contactUsForm = this.page.locator( 'form.elementor-form[name="Contact Form"]' );
-        this.contactUsFormSelector = 'form.elementor-form[name="Contact Form"]';
+        this.contactUsSubmitButton = this.page.locator( '[name="Contact Form"] button[type="submit"]' );
+        this.contactUsSubmitButtonSelector = '[name="Contact Form"] button[type="submit"]';
         this.seeInventoryButton = this.page.locator('[aria-label="See Inventory"]')
 
         // Material Calculator
@@ -24,8 +24,8 @@ class EverguardMaterial {
         this.emailMaterialsButton = this.page.locator('.pbSubmit[tabindex="0"]');
 
         // PDP
-        this.productDescriptionSelector = '[data-id="cf0eb31"]';
-        this.productDescription = this.page.locator( '[data-id="cf0eb31"]' );
+        this.addToCartButtonSelector = '[name="add-to-cart"]';
+        this.addToCartButton = this.page.locator( '[name="add-to-cart"]' );
         this.productImageSelector = '.woocommerce-product-gallery.woocommerce-product-gallery--with-images';
         this.productImage = this.page.locator('.woocommerce-product-gallery.woocommerce-product-gallery--with-images');
 
@@ -39,7 +39,7 @@ class EverguardMaterial {
 
     async checkButtons(page, url){
         let linkSelector = this.page.locator( 'a.elementor-button-link:not( [data-elementor-type="popup"] *)' );
-        await this.page.goto(url, {waitUntil : "load"});
+        await this.page.goto(url, {waitUntil : "domcontentloaded"});
         let buttonCount = await linkSelector.count();
         for (let i =0; i < buttonCount; i++ ){
             await expect(await linkSelector.nth(i).getAttribute("href"), `Link: ${await linkSelector.nth(i).innerHTML()} is missing the href address` ).not.toEqual( '' );
@@ -56,7 +56,7 @@ class EverguardMaterial {
                     await linkSelector.nth(i).click();
                     await this.page.waitForLoadState( 'load' );
                     await expect(got404).toEqual( [] );
-                    await this.page.goto(url, {waitUntil : "networkidle"});
+                    await this.page.goto(url, {waitUntil : "domcontentloaded"});
                 };
             } else if(await linkSelector.nth(i).getAttribute("target") == '_blank' ){
                 let got404 = []
@@ -69,7 +69,7 @@ class EverguardMaterial {
                 ]);
                 await newTabPage.waitForLoadState( 'load' );
                 await expect(got404).toEqual( [] );
-                await this.page.goto(url, {waitUntil : "networkidle"})
+                await this.page.goto(url, {waitUntil : "domcontentloaded"})
             };
         };
     }
@@ -110,16 +110,16 @@ class EverguardMaterial {
         });
       
         //Go to the URL and scroll to the bottom so that the network can idle on the whole pages
-        await this.page.goto(url, { waitUntil: 'networkidle' });
+        await this.page.goto(url, { waitUntil: 'domcontentloaded' });
         await this.page.waitForTimeout( 10000 );
         
         //Validate Broken CSS Requests
         await expect(requestFailed, `Failed Assets: ${requestFailed.toString()}` ).toEqual( [] )
     };
 
-    async checkContactForm() {
-        await this.page.waitForSelector( this.contactUsFormSelector );
-        await expect(this.contactUsForm).toHaveScreenshot( 'contactForm.png', { maxDiffPixels: 200 })
+    async checkContactFormSubmitButton() {
+        await this.page.waitForSelector( this.contactUsSubmitButtonSelector );
+        await expect(this.contactUsSubmitButton).toHaveScreenshot( 'contactFormSubmitButton.png', { maxDiffPixels: 200 })
     }
 
     // Home Page
@@ -129,9 +129,9 @@ class EverguardMaterial {
     }
 
     // PDP
-    async checkProductDescription() {
-        await this.page.waitForSelector( this.productDescriptionSelector );
-        await expect(this.productDescription).toHaveScreenshot( 'productDescription.png', { maxDiffPixels: 200 });
+    async checkAddToCartPDP() {
+        await this.page.waitForSelector( this.addToCartButtonSelector );
+        await expect(this.addToCartButton).toHaveScreenshot( 'addToCartPDP.png', { maxDiffPixels: 200 });
     }
 
     async checkProductImage() {

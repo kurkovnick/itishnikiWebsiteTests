@@ -12,7 +12,7 @@ class InlineSecurityFence {
 
     async checkButtons(page, url){
         let linkSelector = this.page.locator( 'a.elementor-button:not( [data-id="1f1ef0c"] *)' );
-        await this.page.goto(url, {waitUntil : "networkidle"});
+        await this.page.goto(url, {waitUntil : "domcontentloaded"});
         let buttonCount = await linkSelector.count();
         for (let i =0; i < buttonCount; i++ ){
             await expect(await linkSelector.nth(i).getAttribute("href"), `Link: ${await linkSelector.nth(i).innerHTML()} is missing the href address` ).not.toEqual( '' );
@@ -29,7 +29,7 @@ class InlineSecurityFence {
                     await linkSelector.nth(i).click();
                     await this.page.waitForLoadState( 'load' );
                     await expect(got404).toEqual( [] );
-                    await this.page.goto(url, {waitUntil : "networkidle"});
+                    await this.page.goto(url, {waitUntil : "domcontentloaded"});
                 };
             } else if(await linkSelector.nth(i).getAttribute("target") == '_blank' ){
                 let got404 = []
@@ -42,7 +42,7 @@ class InlineSecurityFence {
                 ]);
                 await newTabPage.waitForLoadState( 'load' );
                 await expect(got404).toEqual( [] );
-                await this.page.goto(url, {waitUntil : "networkidle"})
+                await this.page.goto(url, {waitUntil : "domcontentloaded"})
             };
         };
     }
@@ -70,7 +70,7 @@ class InlineSecurityFence {
         });
       
         //Go to the URL and scroll to the bottom so that the network can idle on the whole pages
-        await this.page.goto(url, { waitUntil: 'networkidle' });
+        await this.page.goto(url, { waitUntil: 'domcontentloaded' });
         await this.page.waitForTimeout( 2000 );
         
         //Validate Broken CSS Requests

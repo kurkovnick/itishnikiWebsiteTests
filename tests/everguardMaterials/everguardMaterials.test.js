@@ -28,8 +28,9 @@ test.describe('Home Page Tests', () => {
         await helper.checkHeroSection();
     } );
 
-    test('About Us Section Looks Good', async () => {
+    test.only('About Us Section Looks Good', async ( {page} ) => {
         await helper.goToPage(helper.homePageURL);
+        await page.waitForTimeout(5000)
         await helper.checkAboutUsSection();
     } );
 } );
@@ -38,7 +39,7 @@ test.describe('Home Page Tests', () => {
 test.describe('Contact Page Tests', () => {
     test('Contact Form Looks Good', async () => {
         await helper.goToPage(helper.contactPageURL);
-        await helper.checkContactForm();
+        await helper.checkContactFormSubmitButton();
     } );
 } );
 
@@ -68,9 +69,9 @@ test.describe('Check CTA Buttons Page Tests', () => {
 } );
 
 test.describe('PDP Tests ', () => {
-    test(`Product Description section looks good`, async ({ page, }) => {
+    test(`Product Page Add to Cart Button looks good`, async ({ page, }) => {
         await helper.goToPage(helper.productDetailPageURL);
-        await helper.checkProductDescription();
+        await helper.checkAddToCartPDP();
     }); 
 
     test(`Product Images looks good`, async ({ page, }) => {
