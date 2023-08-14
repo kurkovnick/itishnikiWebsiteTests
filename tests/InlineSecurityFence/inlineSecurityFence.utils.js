@@ -6,8 +6,8 @@ class InlineSecurityFence {
         this.heroGetAFreeQuoteButton = this.page.locator( '[data-id="190d943"] [aria-label="Get a Free Quote"]' );
         this.headerSelector = '[data-elementor-type="header"]';
         this.header = this.page.locator('[data-elementor-type="header"]');
-        this.heroTextSectionSelector = '[data-id="ffe3508"]';
-        this.heroTextSection = this.page.locator('[data-id="ffe3508"]');
+        this.heroTextSectionSelector = 'h1.elementor-heading-title';
+        this.heroTextSection = this.page.locator('h1.elementor-heading-title');
     }
 
     async checkButtons(page, url){
