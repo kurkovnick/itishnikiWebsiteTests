@@ -2,6 +2,9 @@
     "pageURLs" : {
         "homePage" : "https://www.inlinesecurityfence.com",
         "quotePage" : "https://inlinesecurityfence.com/quote/",
-        "servicesPage" : "https://inlinesecurityfence.com/fences/"
+        "antiClimbFencePage" : "https://inlinesecurityfence.com/anti-climb-fence/",
+        "steelFencePage" : "https://inlinesecurityfence.com/steel-fence/",
+        "securityGatesPage" : "https://inlinesecurityfence.com/security-gates/",
+        "chainlinkPage" : "https://inlinesecurityfence.com/chain-link/"
     }
 }
