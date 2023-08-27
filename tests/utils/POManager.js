@@ -1,6 +1,8 @@
 const { test, expect, page } = require('@playwright/test' );
 const { EverguardMaterial } = require( '../everguardMaterials/everguardMaterials.utils');
 const { InlineSecurityFence } = require( '../InlineSecurityFence/inlineSecurityFence.utils');
+const { InlineFence } = require( '../InlineFence/inlineFence.utils');
+
 
 class POManager  {
     
@@ -11,7 +13,7 @@ class POManager  {
         this.homePageURL = 'https://www.everguardmaterials.com';
         this.everguardMaterial = new EverguardMaterial( page, url);
         this.inlineSecurityFence = new InlineSecurityFence( page, url);
-
+        this.inlineFence = new InlineFence( page, url);
     }
 
     getEverguardMaterialUtils(){
@@ -20,6 +22,10 @@ class POManager  {
 
     getInlineSecurityFenceUtils(){
         return this.inlineSecurityFence;
+    }
+
+    getInlineFenceUtils(){
+        return this.inlineFence;
     }
 }
 

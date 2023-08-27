@@ -1,0 +1,101 @@
+const { test, expect, page } = require( '@playwright/test' );
+//const { projects } = require('../../playwright.config');
+const { POManager } = require( '../utils/POManager' );
+const data = JSON.parse(JSON.stringify(require('./inlineFence.data.json')));
+import { defineConfig } from '@playwright/test';
+
+let poManager = {};
+let helper = {};
+
+test.beforeEach( async ( {page} ) => {
+    poManager = new POManager( page );
+    helper = poManager.getInlineFenceUtils( page );
+} );
+
+test.describe('Home Page Tests', () => {
+    test('Header Looks Good', async () => {
+        await helper.goToPage(data.pageURLs.homePage);
+        await helper.checkHeader();
+    } );
+
+    test('Hero Section Looks Good', async () => {
+        await helper.goToPage(data.pageURLs.homePage);
+        await helper.checkFenceSpecialtiesSection();
+    } );
+} );
+
+test.describe('Horizontal Page Tests', () => {
+    test('Hero Section Looks Good', async () => {
+        await helper.goToPage(data.pageURLs.horizontalFencePage);
+        await helper.horizontalPageHeroSectionCheck();
+    } );
+} );
+
+test.describe('Full Panel Page Tests', () => {
+    test('Hero Section Looks Good', async () => {
+        await helper.goToPage(data.pageURLs.fullPanelFencePage);
+        await helper.fullPanelPageHeroSectionCheck();
+    } );
+} );
+
+test.describe('Chainlink Page Tests', () => {
+    test('Hero Section Looks Good', async () => {
+        await helper.goToPage(data.pageURLs.chainlinkFencePage);
+        await helper.chainlinkPageHeroSectionCheck();
+    } );
+} );
+
+test.describe('Hog Wire Page Tests', () => {
+    test('Hero Section Looks Good', async () => {
+        await helper.goToPage(data.pageURLs.hogwireFencePage);
+        await helper.hogWirePageHeroSectionCheck();
+    } );
+} );
+
+test.describe('Vinyl Page Tests', () => {
+    test('Hero Section Looks Good', async () => {
+        await helper.goToPage(data.pageURLs.vinylFencePage);
+        await helper.vinylPageHeroSectionCheck();
+    } );
+} );
+
+test.describe('Ornamental Iron Page Tests', () => {
+    test('Hero Section Looks Good', async () => {
+        await helper.goToPage(data.pageURLs.ornamentalIronPage);
+        await helper.ornamentalIronPageHeroSectionCheck();
+    } );
+} );
+
+test.describe('Wooden Fences Page Tests', () => {
+    test('Hero Section Looks Good', async () => {
+        await helper.goToPage(data.pageURLs.cedarWoodenFencesPage);
+        await helper.woodenFencesPageHeroSectionCheck();
+    } );
+} );
+
+
+
+
+
+
+// test.describe('Contact Page Tests', () => {
+//     test('Contact Form Looks Good', async () => {
+//         await helper.goToPage(helper.contactPageURL);
+//         await helper.checkContactFormSubmitButton();
+//     } );
+// } );
+
+
+test.describe('Check CTA Buttons Page Tests', () => {
+    
+    for(let i = 0; i < Object.keys(data.pageURLs).length; i++){
+        test(`${Object.keys(data.pageURLs)[i]}`, async ({ page, }) => {
+            await helper.checkButtons(page, Object.values(data.pageURLs)[i], 'a.elementor-button-link:not(.elementor-hidden-desktop.elementor-hidden-tablet.elementor-hidden-mobile):visible');
+        });
+    };
+} );
+
+
+
+
+

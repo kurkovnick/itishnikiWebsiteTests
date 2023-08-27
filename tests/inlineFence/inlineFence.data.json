@@ -1,0 +1,17 @@
+{ 
+    "pageURLs" : {
+        "homePage" : "https://www.inline-fence.com",
+        "horizontalFencePage" : "https://inline-fence.com/horizontal-fence/",
+        "vinylFencePage" : "https://inline-fence.com/vinyl-fence/",
+        "hogwireFencePage" : "https://inline-fence.com/hog-wire-fence/",
+        "chainlinkFencePage" : "https://inline-fence.com/chain-link-fencing/",
+        "cedarWoodenFencesPage" : "https://inline-fence.com/wooden-cedar-fences/",
+        "fullPanelFencePage" : "https://inline-fence.com/full-panel-fence/",
+        "modifiedFullPanelFencePage" : "https://inline-fence.com/modified-full-panel/",
+        "ornamentalIronPage" : "https://inline-fence.com/ornamental-iron/",
+        "ramblerFencePage" : "https://inline-fence.com/rambler-fence/",
+        "addonsOptionsPage" : "https://inline-fence.com/add-on-options/",
+        "finacningPage" : "https://inline-fence.com/financing/",
+        "warrantyPage" : "https://inline-fence.com/warranty/"
+    }
+}

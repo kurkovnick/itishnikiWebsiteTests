@@ -1,45 +1,52 @@
 const { expect } = require( '@playwright/test' );
 
-class EverguardMaterial {
+class InlineFence {
     constructor ( page) {
         this.page = page;
-        this.header = this.page.locator( '[data-id="32c0b7e"]' );
-        this.headerSelector = '[data-id="32c0b7e"]';
+        this.header = this.page.locator( '[data-elementor-type="header"]' );
+        this.headerSelector = '[data-elementor-type="header"]';
         this.footer = this.page.locator( '.elementor-location-footer' )
         this.footerSelector = '.elementor-location-footer';
-        this.heroSection = this.page.locator( '[data-id="1c1a1ad"]' );
-        this.heroSectionSelector = '[data-id="1c1a1ad"]';
+        this.ourFenceSpecialtiesText = this.page.locator( '[data-id="39badd1"]' );
+        this.ourFenceSpecialtiesTextSelector = '[data-id="39badd1"]';
         this.aboutUsSection = this.page.locator( '[data-id="67e0f15"]' );
         this.aboutUsSelector = '[data-id="67e0f15"]';
         this.contactUsSubmitButton = this.page.locator( '[name="Contact Form"] button[type="submit"]' );
         this.contactUsSubmitButtonSelector = '[name="Contact Form"] button[type="submit"]';
         this.seeInventoryButton = this.page.locator('[aria-label="See Inventory"]');
 
-        // Material Calculator
-        this.pageTitleSectionSelector = '[data-id="4ca31c0"] h2';
-        this.pageTitleSection = this.page.locator('[data-id="4ca31c0"] h2');
-        this.fenceStyleField = this.page.locator('#fieldname1_1');
-        this.approximateLinealFeet = this.page.locator( '#fieldname4_1');
-        this.emailField = this.page.locator( '#fieldname30_1' );
-        this.emailMaterialsButton = this.page.locator('.pbSubmit[tabindex="0"]');
+        // Horizontal Page
+        this.horizontalPageHeroSection = this.page.locator('[data-id="0417232"]');
+        this.horizontalPageHeroSectionSelector = '[data-id="0417232"]';
 
-        // PDP
-        this.addToCartButtonSelector = '[name="add-to-cart"]';
-        this.addToCartButton = this.page.locator( '[name="add-to-cart"]' );
-        this.productImageSelector = '.woocommerce-product-gallery.woocommerce-product-gallery--with-images';
-        this.productImage = this.page.locator('.woocommerce-product-gallery.woocommerce-product-gallery--with-images');
+        // Full Panel Page
+        this.fullPanelPageHeroSection = this.page.locator('[data-id="ab82c51"]');
+        this.fullPanelPageHeroSectionSelector = '[data-id="ab82c51"]';
 
-        // URls
-        this.homePageURL = 'https://www.everguardmaterials.com';
-        this.contactPageURL = 'https://everguardmaterials.com/contact/';
-        this.materialCalculatorURL = 'https://everguardmaterials.com/fence-material-calculator/';
-        this.productDetailPageURL = 'https://everguardmaterials.com/product/alta-1x4x4-clear/';
+        // Chain Link Page
+        this.chainlinkPageHeroSection = this.page.locator('[data-id="8899cad"]');
+        this.chainlinkPageHeroSectionSelector = '[data-id="8899cad"]';
 
+        // Hog Wire Page
+        this.hogWirePageHeroSection = this.page.locator('[data-id="e274c3b"]');
+        this.hogWirePageHeroSectionSelector = '[data-id="e274c3b"]';
+
+        // Vinyl Page
+        this.vinylPageHeroSection = this.page.locator('[data-id="c464796"]');
+        this.vinylPageHeroSectionSelector = '[data-id="c464796"]';
+
+        // Ornamental Iron Page
+        this.ornamentalIronPageHeroSection = this.page.locator('[data-id="34e9211"]');
+        this.ornamentalIronPageHeroSectionSelector = '[data-id="34e9211"]';
+
+        //Wooden Fences Page
+        this.woodenFencesPageHeroSection = this.page.locator('[data-id="ecbf7d5"]')
+        this.woodenFencesPageHeroSectionSelector = '[data-id="ecbf7d5"]';
     }
 
-    async checkButtons(page, url){
-        let linkSelector = this.page.locator( 'a.elementor-button-link:not( [data-elementor-type="popup"] *)' );
-        await this.page.goto(url, {waitUntil : "domcontentloaded"});
+    async checkButtons(page, url, selector){
+        let linkSelector = this.page.locator( selector );
+        await this.page.goto(url, {waitUntil : "networkidle"});
         let buttonCount = await linkSelector.count();
         for (let i =0; i < buttonCount; i++ ){
             await expect(await linkSelector.nth(i).getAttribute("href"), `Link: ${await linkSelector.nth(i).innerHTML()} is missing the href address` ).not.toEqual( '' );
@@ -69,18 +76,12 @@ class EverguardMaterial {
                 ]);
                 await newTabPage.waitForLoadState( 'load' );
                 await expect(got404).toEqual( [] );
-                await this.page.goto(url, {waitUntil : "domcontentloaded"})
+                await this.page.goto(url, {waitUntil : "domcontentloaded"});
             };
         };
     }
     
     // Home Page
-    async closePopup() {
-        await this.page.locator('[aria-label="Close"]').waitFor({state: 'visible'});
-        await this.page.locator('[aria-label="Close"]').click();
-        await this.page.waitForTimeout(4000)
-    }
-    
     async checkHeader() {
         await this.page.waitForSelector( this.headerSelector );
         await expect(this.header).toHaveScreenshot( 'header.png', { maxDiffPixels: 200 });
@@ -91,14 +92,19 @@ class EverguardMaterial {
         await expect(this.footer).toHaveScreenshot( 'footer.png', { maxDiffPixels: 200 });
     }
 
-    async checkHeroSection() {
-        await this.page.waitForSelector( this.heroSectionSelector );
-        await expect(this.heroSection).toHaveScreenshot( 'homePageHero.png', { maxDiffPixels: 200 });
+    async checkFenceSpecialtiesSection() {
+        await this.page.waitForSelector( this.ourFenceSpecialtiesTextSelector );
+        await expect(this.ourFenceSpecialtiesText).toHaveScreenshot( 'ourFenceSpecialties.png', { maxDiffPixels: 200 });
     }
 
     async checkAboutUsSection() {
         await this.page.waitForSelector( this.aboutUsSelector );
         await expect(this.aboutUsSection).toHaveScreenshot( 'aboutUs.png', { maxDiffPixels: 200 })
+    }
+
+    async checkPageTitleSection() {
+        await this.page.waitForSelector( this.pageTitleSectionSelector );
+        await expect(this.pageTitleSection).toHaveScreenshot( 'CalculatorPageTitle.png', { maxDiffPixels: 200 });
     }
 
 
@@ -117,16 +123,60 @@ class EverguardMaterial {
         await expect(requestFailed, `Failed Assets: ${requestFailed.toString()}` ).toEqual( [] )
     };
 
+    //Quote Page
     async checkContactFormSubmitButton() {
         await this.page.waitForSelector( this.contactUsSubmitButtonSelector );
         await expect(this.contactUsSubmitButton).toHaveScreenshot( 'contactFormSubmitButton.png', { maxDiffPixels: 200 })
     }
 
-    // Home Page
-    async checkPageTitleSection() {
-        await this.page.waitForSelector( this.pageTitleSectionSelector );
-        await expect(this.pageTitleSection).toHaveScreenshot( 'CalculatorPageTitle.png', { maxDiffPixels: 200 });
+    // Horizontal Page
+    async horizontalPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.horizontalPageHeroSectionSelector );
+        await expect(this.horizontalPageHeroSection).toHaveScreenshot( 'horizontalPageHeroSection.png', { maxDiffPixels: 200 })
     }
+    
+    
+    // Full Panel Page
+    async fullPanelPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.fullPanelPageHeroSectionSelector );
+        await expect(this.fullPanelPageHeroSection).toHaveScreenshot( 'fullPanelPageHeroSection.png', { maxDiffPixels: 200 })
+    }
+
+
+    // Chain Link Page
+    async chainlinkPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.chainlinkPageHeroSectionSelector );
+        await expect(this.chainlinkPageHeroSection).toHaveScreenshot( 'chainlinkPageHeroSection.png', { maxDiffPixels: 200 })
+    }
+
+    // Hog Wire Page
+    async hogWirePageHeroSectionCheck() {
+        await this.page.waitForSelector( this.hogWirePageHeroSectionSelector );
+        await expect(this.hogWirePageHeroSection).toHaveScreenshot( 'hogWirePageHeroSection.png', { maxDiffPixels: 200 })
+    }
+
+    // Vinyl Page
+    async vinylPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.vinylPageHeroSectionSelector );
+        await expect(this.vinylPageHeroSection).toHaveScreenshot( 'vinylPageHeroSection.png', { maxDiffPixels: 200 })
+    }
+
+    // Ornamental Iron Page
+    async ornamentalIronPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.ornamentalIronPageHeroSectionSelector );
+        await expect(this.ornamentalIronPageHeroSection).toHaveScreenshot( 'ornamentalIronPageHeroSection.png', { maxDiffPixels: 200 })
+    }
+    
+
+    
+    // Wooden Fences Page
+    async woodenFencesPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.woodenFencesPageHeroSectionSelector );
+        await expect(this.woodenFencesPageHeroSection).toHaveScreenshot( 'woodenFencesPageHeroSection.png', { maxDiffPixels: 200 })
+    }
+
+    
+    
 
     // PDP
     async checkAddToCartPDP() {
@@ -140,4 +190,4 @@ class EverguardMaterial {
     } 
 }
 
-module.exports = { EverguardMaterial };
+module.exports = { InlineFence };
