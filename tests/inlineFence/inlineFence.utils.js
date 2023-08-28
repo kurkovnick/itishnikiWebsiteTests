@@ -52,6 +52,16 @@ class InlineFence {
         this.woodenFencesPageHeroSection = this.page.locator('[data-id="ecbf7d5"]')
         this.woodenFencesPageHeroSectionSelector = '[data-id="ecbf7d5"]';
 
+
+        this.brokenHTMLHeirarchyURLs = [
+            "https://www.inline-fence.com",
+            "https://inline-fence.com/hog-wire-fence/",
+            "https://inline-fence.com/financing/",
+            "https://inline-fence.com/vinyl-fence/",
+            "https://inline-fence.com/full-panel-fence/",
+            "https://inline-fence.com/chain-link-fencing/"
+        ]
+      
         //Addon Options Page
         this.addonOptionsPageHeroSection = this.page.locator('[data-id="798ff20"]')
         this.addonOptionsPageHeroSectionSelector = '[data-id="798ff20"]';
@@ -89,7 +99,6 @@ class InlineFence {
         //Bothell Page
         this.bothellPageHeroSection = this.page.locator('[data-id="2703a07"]')
         this.bothellPageHeroSectionSelector = '[data-id="2703a07"]';
-
     }
 
     async checkButtons(page, url, selector){
@@ -303,6 +312,15 @@ class InlineFence {
         await this.page.waitForSelector( this.bothellPageHeroSectionSelector );
         await expect(this.bothellPageHeroSection).toHaveScreenshot( 'bothellPageHeroSection.png', { maxDiffPixels: 200 })
     } 
+
+
+
+    async checkHTMLHeirarchy(page, url){
+        if(!this.brokenHTMLHeirarchyURLs.includes(url)){
+            await this.page.goto(url, {waitUntil : "networkidle"});
+            await expect(await page.locator('body h1').count()).toEqual(1)
+        };
+    };
 }
 
 module.exports = { InlineFence };

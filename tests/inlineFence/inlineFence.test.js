@@ -171,5 +171,16 @@ test.describe('Check CTA Buttons Page Tests', () => {
 
 
 
+test.describe('Check Page HTML Heirarchy Tests', () => {
+    
+    for(let i = 0; i < Object.keys(data.pageURLs).length; i++){
+        test(`${Object.keys(data.pageURLs)[i]}`, async ({ page, }) => {
+            await helper.checkHTMLHeirarchy(page, Object.values(data.pageURLs)[i])
+        });
+    };
+} );
+
+
+
 
 
