@@ -42,6 +42,15 @@ class InlineFence {
         //Wooden Fences Page
         this.woodenFencesPageHeroSection = this.page.locator('[data-id="ecbf7d5"]')
         this.woodenFencesPageHeroSectionSelector = '[data-id="ecbf7d5"]';
+
+        this.brokenHTMLHeirarchyURLs = [
+            "https://www.inline-fence.com",
+            "https://inline-fence.com/hog-wire-fence/",
+            "https://inline-fence.com/financing/",
+            "https://inline-fence.com/vinyl-fence/",
+            "https://inline-fence.com/full-panel-fence/",
+            "https://inline-fence.com/chain-link-fencing/"
+        ]
     }
 
     async checkButtons(page, url, selector){
@@ -188,6 +197,15 @@ class InlineFence {
         await this.page.waitForSelector( this.productImageSelector );
         await expect(this.productImage).toHaveScreenshot( 'productImage.png', { maxDiffPixels: 200 });
     } 
+
+
+
+    async checkHTMLHeirarchy(page, url){
+        if(!this.brokenHTMLHeirarchyURLs.includes(url)){
+            await this.page.goto(url, {waitUntil : "networkidle"});
+            await expect(await page.locator('body h1').count()).toEqual(1)
+        };
+    };
 }
 
 module.exports = { InlineFence };
