@@ -1,6 +1,7 @@
 { 
     "pageURLs" : {
         "homePage" : "https://www.inline-fence.com",
+        "aboutPage" : "https://inline-fence.com/about-inline-fence/",
         "horizontalFencePage" : "https://inline-fence.com/horizontal-fence/",
         "vinylFencePage" : "https://inline-fence.com/vinyl-fence/",
         "hogwireFencePage" : "https://inline-fence.com/hog-wire-fence/",
@@ -10,8 +11,14 @@
         "modifiedFullPanelFencePage" : "https://inline-fence.com/modified-full-panel/",
         "ornamentalIronPage" : "https://inline-fence.com/ornamental-iron/",
         "ramblerFencePage" : "https://inline-fence.com/rambler-fence/",
-        "addonsOptionsPage" : "https://inline-fence.com/add-on-options/",
+        "addonOptionsPage" : "https://inline-fence.com/add-on-options/",
         "finacningPage" : "https://inline-fence.com/financing/",
-        "warrantyPage" : "https://inline-fence.com/warranty/"
+        "warrantyPage" : "https://inline-fence.com/warranty/",
+        "postOnPipe" : "https://inline-fence.com/post-on-pipe/",
+        "careersPage" : "https://inline-fence.com/careers/",
+        "quotePage" : "https://inline-fence.com/quote/",
+        "kirklandPage" : "https://inline-fence.com/commercial-residential-fence-kirkland/",
+        "bellevuePage" : "https://inline-fence.com/commercial-residential-fence-bellevue/",
+        "bothellPage" : "https://inline-fence.com/commercial-residential-fence-bothell/"
     }
 }

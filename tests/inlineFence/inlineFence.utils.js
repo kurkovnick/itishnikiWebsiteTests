@@ -10,10 +10,11 @@ class InlineFence {
         this.ourFenceSpecialtiesText = this.page.locator( '[data-id="39badd1"]' );
         this.ourFenceSpecialtiesTextSelector = '[data-id="39badd1"]';
         this.aboutUsSection = this.page.locator( '[data-id="67e0f15"]' );
-        this.aboutUsSelector = '[data-id="67e0f15"]';
-        this.contactUsSubmitButton = this.page.locator( '[name="Contact Form"] button[type="submit"]' );
-        this.contactUsSubmitButtonSelector = '[name="Contact Form"] button[type="submit"]';
-        this.seeInventoryButton = this.page.locator('[aria-label="See Inventory"]');
+
+        // About Page
+        this.aboutPageHeroSectionText = this.page.locator('[data-id="5c890140"]');
+        this.aboutPageHeroSectionTextSelector = '[data-id="5c890140"]';
+
 
         // Horizontal Page
         this.horizontalPageHeroSection = this.page.locator('[data-id="0417232"]');
@@ -39,9 +40,18 @@ class InlineFence {
         this.ornamentalIronPageHeroSection = this.page.locator('[data-id="34e9211"]');
         this.ornamentalIronPageHeroSectionSelector = '[data-id="34e9211"]';
 
+        // Rambler Iron Page
+        this.ramblerPageHeroSection = this.page.locator('[data-id="795b3fc"]');
+        this.ramblerPageHeroSectionSelector = '[data-id="795b3fc"]';
+
+        // Modified Full Panel Page
+        this.modifiedFullPanelPageHeroSection = this.page.locator('[data-id="3c94634"]');
+        this.modifiedFullPanelPageHeroSectionSelector = '[data-id="3c94634"]';
+
         //Wooden Fences Page
         this.woodenFencesPageHeroSection = this.page.locator('[data-id="ecbf7d5"]')
         this.woodenFencesPageHeroSectionSelector = '[data-id="ecbf7d5"]';
+
 
         this.brokenHTMLHeirarchyURLs = [
             "https://www.inline-fence.com",
@@ -51,6 +61,44 @@ class InlineFence {
             "https://inline-fence.com/full-panel-fence/",
             "https://inline-fence.com/chain-link-fencing/"
         ]
+      
+        //Addon Options Page
+        this.addonOptionsPageHeroSection = this.page.locator('[data-id="798ff20"]')
+        this.addonOptionsPageHeroSectionSelector = '[data-id="798ff20"]';
+
+        //Warranty Options Page
+        this.warrantyPageHeroSection = this.page.locator('[data-id="d5d3327"]')
+        this.warrantyPageHeroSectionSelector = '[data-id="d5d3327"]';
+
+        //Post On Pipe Options Page
+        this.postOnPipePageHeroSection = this.page.locator('[data-id="20f4dfa"]')
+        this.postOnPipePageHeroSectionSelector = '[data-id="20f4dfa"]';
+
+        //Careers Page
+        this.careersPageHeroSection = this.page.locator('[data-id="38d1870"]')
+        this.careersPageHeroSectionSelector = '[data-id="38d1870"]';
+
+        //Quote Page
+        this.quotePageHeroSection = this.page.locator('[data-id="9c8bd99"]')
+        this.quotePageHeroSectionSelector = '[data-id="9c8bd99"]';
+
+
+
+        /*
+            City Pages
+        */
+
+        //Kirkland Page
+        this.kirklandPageHeroSection = this.page.locator('[data-id="2703a07"]')
+        this.kirklandPageHeroSectionSelector = '[data-id="2703a07"]';
+
+        //Bellevue Page
+        this.bellevuePageHeroSection = this.page.locator('[data-id="2703a07"]')
+        this.bellevuePageHeroSectionSelector = '[data-id="2703a07"]';
+
+        //Bothell Page
+        this.bothellPageHeroSection = this.page.locator('[data-id="2703a07"]')
+        this.bothellPageHeroSectionSelector = '[data-id="2703a07"]';
     }
 
     async checkButtons(page, url, selector){
@@ -138,6 +186,14 @@ class InlineFence {
         await expect(this.contactUsSubmitButton).toHaveScreenshot( 'contactFormSubmitButton.png', { maxDiffPixels: 200 })
     }
 
+
+    // About Page
+    async aboutPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.aboutPageHeroSectionTextSelector );
+        await expect(this.aboutPageHeroSectionText).toHaveScreenshot( 'aboutPageHeroSection.png', { maxDiffPixels: 200 })
+    }
+
+
     // Horizontal Page
     async horizontalPageHeroSectionCheck() {
         await this.page.waitForSelector( this.horizontalPageHeroSectionSelector );
@@ -176,7 +232,18 @@ class InlineFence {
         await expect(this.ornamentalIronPageHeroSection).toHaveScreenshot( 'ornamentalIronPageHeroSection.png', { maxDiffPixels: 200 })
     }
     
+    // Rambler Page
+    async ramblerPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.ramblerPageHeroSectionSelector );
+        await expect(this.ramblerPageHeroSection).toHaveScreenshot( 'ramblerPageHeroSection.png', { maxDiffPixels: 200 })
+    }
 
+
+    // Modified Full Page
+    async modifiedFullPanelPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.modifiedFullPanelPageHeroSectionSelector );
+        await expect(this.modifiedFullPanelPageHeroSection).toHaveScreenshot( 'modifiedFullPanelPageHeroSection.png', { maxDiffPixels: 200 })
+    }
     
     // Wooden Fences Page
     async woodenFencesPageHeroSectionCheck() {
@@ -184,18 +251,66 @@ class InlineFence {
         await expect(this.woodenFencesPageHeroSection).toHaveScreenshot( 'woodenFencesPageHeroSection.png', { maxDiffPixels: 200 })
     }
 
-    
-    
 
-    // PDP
-    async checkAddToCartPDP() {
-        await this.page.waitForSelector( this.addToCartButtonSelector );
-        await expect(this.addToCartButton).toHaveScreenshot( 'addToCartPDP.png', { maxDiffPixels: 200 });
+    // Addon Options Fences Page
+    async addonOptionsPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.addonOptionsPageHeroSectionSelector );
+        await expect(this.addonOptionsPageHeroSection).toHaveScreenshot( 'addonOptionsPageHeroSection.png', { maxDiffPixels: 200 })
     }
 
-    async checkProductImage() {
-        await this.page.waitForSelector( this.productImageSelector );
-        await expect(this.productImage).toHaveScreenshot( 'productImage.png', { maxDiffPixels: 200 });
+
+    // Warranty Fences Page
+    async warrantyPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.warrantyPageHeroSectionSelector );
+        await expect(this.warrantyPageHeroSection).toHaveScreenshot( 'warrantyPageHeroSection.png', { maxDiffPixels: 200 })
+    }
+
+
+    // Post On Pipe Fences Page
+    async postOnPipePageHeroSectionCheck() {
+        await this.page.waitForSelector( this.postOnPipePageHeroSectionSelector );
+        await expect(this.postOnPipePageHeroSection).toHaveScreenshot( 'postOnPipePageHeroSection.png', { maxDiffPixels: 200 })
+    }
+
+
+    // Careers Page
+    async careersPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.careersPageHeroSectionSelector );
+        await expect(this.careersPageHeroSection).toHaveScreenshot( 'careersPageHeroSection.png', { maxDiffPixels: 200 })
+    }
+
+
+    // Quote Page
+    async quotePageHeroSectionCheck() {
+        await this.page.waitForSelector( this.quotePageHeroSectionSelector );
+        await expect(this.quotePageHeroSection).toHaveScreenshot( 'quotePageHeroSection.png', { maxDiffPixels: 200 })
+    }
+
+    
+    
+    /*
+
+        City Pages
+
+    */
+
+    // Kirkland Page
+    async kirklandPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.kirklandPageHeroSectionSelector );
+        await expect(this.kirklandPageHeroSection).toHaveScreenshot( 'kirklandPageHeroSection.png', { maxDiffPixels: 200 })
+    } 
+
+
+    // Bellevue Page
+    async bellevuePageHeroSectionCheck() {
+        await this.page.waitForSelector( this.bellevuePageHeroSectionSelector );
+        await expect(this.bellevuePageHeroSection).toHaveScreenshot( 'bellevuePageHeroSection.png', { maxDiffPixels: 200 })
+    } 
+
+    // Bothell Page
+    async bothellPageHeroSectionCheck() {
+        await this.page.waitForSelector( this.bothellPageHeroSectionSelector );
+        await expect(this.bothellPageHeroSection).toHaveScreenshot( 'bothellPageHeroSection.png', { maxDiffPixels: 200 })
     } 
 
 
