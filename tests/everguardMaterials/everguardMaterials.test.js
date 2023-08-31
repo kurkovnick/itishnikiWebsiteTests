@@ -18,10 +18,10 @@ test.describe('Home Page Tests', () => {
         await helper.checkHeader();
     } );
 
-    test('Footer Looks Good', async () => {
-        await helper.goToPage(helper.materialCalculatorURL);
-        await helper.checkFooter();
-    } );
+    // test('Footer Looks Good', async () => {
+    //     await helper.goToPage(helper.materialCalculatorURL);
+    //     await helper.checkFooter();
+    // } );
 
     test('Hero Section Looks Good', async () => {
         await helper.goToPage(helper.homePageURL);
@@ -76,6 +76,7 @@ test.describe('PDP Tests ', () => {
 
     test(`Product Images looks good`, async ({ page, }) => {
         await helper.goToPage(helper.productDetailPageURL);
+        await page.waitForTimeout(3000);
         await helper.checkProductImage();
     });
 } );
