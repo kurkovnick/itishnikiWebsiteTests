@@ -53,7 +53,7 @@ class InlineFence {
         this.woodenFencesPageHeroSectionSelector = '[data-id="ecbf7d5"]';
 
 
-        this.brokenHTMLHeirarchyURLs = [
+        this.h1TestFailedURLs = [
             "https://www.inline-fence.com",
             "https://inline-fence.com/hog-wire-fence/",
             "https://inline-fence.com/financing/",
@@ -61,6 +61,32 @@ class InlineFence {
             "https://inline-fence.com/full-panel-fence/",
             "https://inline-fence.com/chain-link-fencing/"
         ]
+
+
+        this.brokenH2H3H4HeirarchyURLs = [
+            "https://www.inline-fence.com",
+            "https://inline-fence.com/about-inline-fence/",
+            "https://inline-fence.com/horizontal-fence/",
+            "https://inline-fence.com/vinyl-fence/",
+            "https://inline-fence.com/hog-wire-fence/",
+            "https://inline-fence.com/chain-link-fencing/",
+            "https://inline-fence.com/wooden-cedar-fences/",
+            "https://inline-fence.com/full-panel-fence/",
+            "https://inline-fence.com/modified-full-panel/",
+            "https://inline-fence.com/ornamental-iron/",
+            "https://inline-fence.com/rambler-fence/",
+            "https://inline-fence.com/add-on-options/",
+            "https://inline-fence.com/financing/",
+            "https://inline-fence.com/warranty/",
+            "https://inline-fence.com/post-on-pipe/",
+            "https://inline-fence.com/careers/",
+            "https://inline-fence.com/quote/",
+            "https://inline-fence.com/commercial-residential-fence-kirkland/",
+            "https://inline-fence.com/commercial-residential-fence-bellevue/",
+            "https://inline-fence.com/commercial-residential-fence-bothell/"
+        ]
+
+        
       
         //Addon Options Page
         this.addonOptionsPageHeroSection = this.page.locator('[data-id="798ff20"]')
@@ -316,9 +342,20 @@ class InlineFence {
 
 
     async checkHTMLHeirarchy(page, url){
-        if(!this.brokenHTMLHeirarchyURLs.includes(url)){
+        if(!this.h1TestFailedURLs.includes(url)){
             await this.page.goto(url, {waitUntil : "networkidle"});
-            await expect(await page.locator('body h1').count()).toEqual(1)
+            await expect(await page.locator('body h1').count(), `The ${url} has a H1 count other then 1`).toEqual(1)
+        };
+
+        if(!this.brokenH2H3H4HeirarchyURLs.includes(url)){
+            await this.page.goto(url, {waitUntil : "networkidle"});
+            if(await page.locator('body h3').count() > 0){
+                await expect(await page.locator('body h2').count(), `The ${url} includes an H3 tag while missing a H2`).toBeGreaterThan(0);
+            }
+
+            if(await page.locator('body h4').count() > 0){
+                await expect(await page.locator('body h3').count(), `The ${url} includes an H4 tag while missing a H3`).toBeGreaterThan(0);
+            }
         };
     };
 }

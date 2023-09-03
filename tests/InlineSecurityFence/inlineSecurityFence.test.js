@@ -22,13 +22,26 @@ test.describe('Check CTA Buttons on Pages Tests', () => {
 test.describe('Home Page', () => {
     
     test('Header Looks Good', async ( {page} ) => {
-        await page.goto(data.pageURLs.homePage);
+        await page.goto( data.pageURLs.homePage );
         await helper.checkHeader();
     } );
 
     test('Hero Text Section Looks Good', async ( {page} ) => {
-        await page.goto(data.pageURLs.homePage, { waitUntil: 'networkidle' });
+        await page.goto( data.pageURLs.homePage, { waitUntil: 'networkidle' } );
         await helper.checkHeroTextSection();
+    } );
+} );
+
+test.describe('Quote Page', () => {
+    
+    test('Hero Section Looks Good', async ( {page} ) => {
+        await page.goto( data.pageURLs.quotePage, { waitUntil: 'networkidle' } );
+        await helper.checkQuotePageHeroTextSection();
+    } );
+
+    test('Quote Form Title Looks Good', async ( {page} ) => {
+        await page.goto( data.pageURLs.quotePage, { waitUntil: 'networkidle' } );
+        await helper.checkQuotePageFormTitleSection();
     } );
 } );
 

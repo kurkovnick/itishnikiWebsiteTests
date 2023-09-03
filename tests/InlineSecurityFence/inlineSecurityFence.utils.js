@@ -8,6 +8,13 @@ class InlineSecurityFence {
         this.header = this.page.locator('[data-elementor-type="header"]');
         this.heroTextSectionSelector = 'h1.elementor-heading-title';
         this.heroTextSection = this.page.locator('h1.elementor-heading-title');
+
+
+        //Quote Page
+        this.quotePageHeroSectionSelector = '[data-id="7c95b7b2"]';
+        this.quotePageHeroSection = this.page.locator('[data-id="7c95b7b2"]');
+        this.quotePageFormTitleSectionSelector = '[data-id="7ad8e196"] h2';
+        this.quotePageFormTitleSection = this.page.locator('[data-id="7ad8e196"] h2');
     }
 
     async checkButtons(page, url){
@@ -62,7 +69,20 @@ class InlineSecurityFence {
     
 
 
-    // Contact Page
+    // Quote Page
+    async checkQuotePageHeroTextSection() {
+        await this.page.waitForSelector( this.quotePageHeroSectionSelector );
+        await expect(this.quotePageHeroSection).toHaveScreenshot( 'quotePageHeroSection.png', { maxDiffPixels: 100 });
+    }
+
+    async checkQuotePageFormTitleSection() {
+        await this.page.waitForSelector( this.quotePageFormTitleSectionSelector );
+        await expect(this.quotePageFormTitleSection).toHaveScreenshot( 'quotePageFormTitle.png', { maxDiffPixels: 100 });
+    }
+    
+    
+    
+    //Helper Functions 
     async goToPageAndCheckCSS(url){
         let requestFailed = []
         this.page.on( 'request' , async request => {
