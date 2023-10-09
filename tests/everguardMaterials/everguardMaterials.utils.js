@@ -9,8 +9,8 @@ class EverguardMaterial {
         this.footerSelector = '.elementor-location-footer';
         this.heroSection = this.page.locator( '[data-id="1c1a1ad"]' );
         this.heroSectionSelector = '[data-id="1c1a1ad"]';
-        this.aboutUsSection = this.page.locator( '[data-id="67e0f15"]' );
-        this.aboutUsSelector = '[data-id="67e0f15"]';
+        this.aboutUsSection = this.page.locator( '[data-id="7d89633"] h2' );
+        this.aboutUsSelector = '[data-id="7d89633"] h2';
         this.contactUsSubmitButton = this.page.locator( '[name="Contact Form"] button[type="submit"]' );
         this.contactUsSubmitButtonSelector = '[name="Contact Form"] button[type="submit"]';
         this.seeInventoryButton = this.page.locator('[aria-label="See Inventory"]');
