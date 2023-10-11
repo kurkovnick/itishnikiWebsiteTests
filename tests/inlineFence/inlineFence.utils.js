@@ -54,36 +54,36 @@ class InlineFence {
 
 
         this.h1TestFailedURLs = [
-            "https://www.inline-fence.com",
-            "https://inline-fence.com/hog-wire-fence/",
-            "https://inline-fence.com/financing/",
-            "https://inline-fence.com/vinyl-fence/",
-            "https://inline-fence.com/full-panel-fence/",
-            "https://inline-fence.com/chain-link-fencing/"
+            "https://www.inline-fence.com/?internal_user=true",
+            "https://inline-fence.com/hog-wire-fence/?internal_user=true",
+            "https://inline-fence.com/financing/?internal_user=true",
+            "https://inline-fence.com/vinyl-fence/?internal_user=true",
+            "https://inline-fence.com/full-panel-fence/?internal_user=true",
+            "https://inline-fence.com/chain-link-fencing/?internal_user=true"
         ]
 
 
         this.brokenH2H3H4HeirarchyURLs = [
-            "https://www.inline-fence.com",
-            "https://inline-fence.com/about-inline-fence/",
-            "https://inline-fence.com/horizontal-fence/",
-            "https://inline-fence.com/vinyl-fence/",
-            "https://inline-fence.com/hog-wire-fence/",
-            "https://inline-fence.com/chain-link-fencing/",
-            "https://inline-fence.com/wooden-cedar-fences/",
-            "https://inline-fence.com/full-panel-fence/",
-            "https://inline-fence.com/modified-full-panel/",
-            "https://inline-fence.com/ornamental-iron/",
-            "https://inline-fence.com/rambler-fence/",
-            "https://inline-fence.com/add-on-options/",
-            "https://inline-fence.com/financing/",
-            "https://inline-fence.com/warranty/",
-            "https://inline-fence.com/post-on-pipe/",
-            "https://inline-fence.com/careers/",
-            "https://inline-fence.com/quote/",
-            "https://inline-fence.com/commercial-residential-fence-kirkland/",
-            "https://inline-fence.com/commercial-residential-fence-bellevue/",
-            "https://inline-fence.com/commercial-residential-fence-bothell/"
+            "https://www.inline-fence.com/?internal_user=true",
+            "https://inline-fence.com/about-inline-fence/?internal_user=true",
+            "https://inline-fence.com/horizontal-fence/?internal_user=true",
+            "https://inline-fence.com/vinyl-fence/?internal_user=true",
+            "https://inline-fence.com/hog-wire-fence/?internal_user=true",
+            "https://inline-fence.com/chain-link-fencing/?internal_user=true",
+            "https://inline-fence.com/wooden-cedar-fences/?internal_user=true",
+            "https://inline-fence.com/full-panel-fence/?internal_user=true",
+            "https://inline-fence.com/modified-full-panel/?internal_user=true",
+            "https://inline-fence.com/ornamental-iron/?internal_user=true",
+            "https://inline-fence.com/rambler-fence/?internal_user=true",
+            "https://inline-fence.com/add-on-options/?internal_user=true",
+            "https://inline-fence.com/financing/?internal_user=true",
+            "https://inline-fence.com/warranty/?internal_user=true",
+            "https://inline-fence.com/post-on-pipe/?internal_user=true",
+            "https://inline-fence.com/careers/?internal_user=true",
+            "https://inline-fence.com/quote/?internal_user=true",
+            "https://inline-fence.com/commercial-residential-fence-kirkland/?internal_user=true",
+            "https://inline-fence.com/commercial-residential-fence-bellevue/?internal_user=true",
+            "https://inline-fence.com/commercial-residential-fence-bothell/?internal_user=true"
         ]
 
         
