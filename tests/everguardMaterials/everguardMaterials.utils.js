@@ -3,8 +3,8 @@ const { expect } = require( '@playwright/test' );
 class EverguardMaterial {
     constructor ( page) {
         this.page = page;
-        this.header = this.page.locator( '[data-id="32c0b7e"]' );
-        this.headerSelector = '[data-id="32c0b7e"]';
+        this.header = this.page.locator( '[data-id="a6fb2f5"]' );
+        this.headerSelector = '[data-id="a6fb2f5"]';
         this.footer = this.page.locator( '.elementor-location-footer' )
         this.footerSelector = '.elementor-location-footer';
         this.heroSection = this.page.locator( '[data-id="1c1a1ad"]' );
