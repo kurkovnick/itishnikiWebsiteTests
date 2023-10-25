@@ -7,8 +7,8 @@ class EverguardMaterial {
         this.headerSelector = '[data-id="a6fb2f5"]';
         this.footer = this.page.locator( '.elementor-location-footer' )
         this.footerSelector = '.elementor-location-footer';
-        this.heroSection = this.page.locator( '[data-id="1c1a1ad"]' );
-        this.heroSectionSelector = '[data-id="1c1a1ad"]';
+        this.heroTitle = this.page.locator( 'body h1' );
+        this.heroTitleSelector = 'body h1';
         this.aboutUsSection = this.page.locator( '[data-id="7d89633"] h2' );
         this.aboutUsSelector = '[data-id="7d89633"] h2';
         this.contactUsSubmitButton = this.page.locator( '[name="Contact Form"] button[type="submit"]' );
@@ -33,7 +33,7 @@ class EverguardMaterial {
         this.homePageURL = 'https://www.everguardmaterials.com';
         this.contactPageURL = 'https://everguardmaterials.com/contact/';
         this.materialCalculatorURL = 'https://everguardmaterials.com/fence-material-calculator/';
-        this.productDetailPageURL = 'https://everguardmaterials.com/product/alta-1x4x4-clear/';
+        this.productDetailPageURL = 'https://everguardmaterials.com/product/pressure-treated-post-on-pipe-8/';
 
     }
 
@@ -91,9 +91,9 @@ class EverguardMaterial {
         await expect(this.footer).toHaveScreenshot( 'footer.png', { maxDiffPixels: 200 });
     }
 
-    async checkHeroSection() {
-        await this.page.waitForSelector( this.heroSectionSelector );
-        await expect(this.heroSection).toHaveScreenshot( 'homePageHero.png', { maxDiffPixels: 200 });
+    async checkHeroTitle() {
+        await this.page.waitForSelector( this.heroTitleSelector );
+        await expect(this.heroTitle).toHaveScreenshot( 'homePageHeroTitle.png', { maxDiffPixels: 200 });
     }
 
     async checkAboutUsSection() {

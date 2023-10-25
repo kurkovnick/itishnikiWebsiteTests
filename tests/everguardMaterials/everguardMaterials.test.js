@@ -23,9 +23,9 @@ test.describe('Home Page Tests', () => {
     //     await helper.checkFooter();
     // } );
 
-    test('Hero Section Looks Good', async () => {
+    test('Hero Section Title Looks Good', async () => {
         await helper.goToPage(helper.homePageURL);
-        await helper.checkHeroSection();
+        await helper.checkHeroTitle();
     } );
 
     test('About Us Section Looks Good ', async ( {page} ) => {
