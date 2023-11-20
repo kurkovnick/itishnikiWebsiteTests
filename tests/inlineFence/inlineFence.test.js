@@ -18,7 +18,7 @@ test.describe('Home Page Tests', () => {
         await helper.checkHeader();
     } );
 
-    test('Hero Section Looks Good', async () => {
+    test.only('Hero Section Looks Good', async () => {
         await helper.goToPage(data.pageURLs.homePage);
         await helper.checkFenceSpecialtiesSection();
     } );
