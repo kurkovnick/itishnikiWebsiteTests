@@ -13,7 +13,7 @@ test.beforeEach( async ( {page} ) => {
 } );
 
 test.describe('Home Page Tests', () => {
-    test.only('Header Looks Good', async () => {
+    test('Header Looks Good', async () => {
         await helper.goToPage(helper.homePageURL);
         await helper.checkHeader();
     } );
@@ -69,7 +69,7 @@ test.describe('Check CTA Buttons Page Tests', () => {
 } );
 
 test.describe('PDP Tests ', () => {
-    test.only(`Product Page Add to Cart Button looks good`, async ({ page, }) => {
+    test(`Product Page Add to Cart Button looks good`, async ({ page, }) => {
         await helper.goToPage(helper.productDetailPageURL);
         await helper.checkAddToCartPDP();
     }); 
