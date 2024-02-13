@@ -46,7 +46,7 @@ test.describe('Full Panel Page Tests', () => {
 } );
 
 test.describe('Chainlink Page Tests', () => {
-    test.only('Hero Section Looks Good', async () => {
+    test('Hero Section Looks Good', async () => {
         await helper.goToPage(data.pageURLs.chainlinkFencePage);
         await helper.chainlinkPageHeroSectionCheck();
     } );
