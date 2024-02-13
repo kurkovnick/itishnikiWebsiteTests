@@ -60,7 +60,7 @@ test.describe('Hog Wire Page Tests', () => {
 } );
 
 test.describe('Vinyl Page Tests', () => {
-    test('Hero Section Looks Good', async () => {
+    test.only('Hero Section Looks Good', async () => {
         await helper.goToPage(data.pageURLs.vinylFencePage);
         await helper.vinylPageHeroSectionCheck();
     } );
