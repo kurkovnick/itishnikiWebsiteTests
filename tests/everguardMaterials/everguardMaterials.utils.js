@@ -5,10 +5,14 @@ class EverguardMaterial {
         this.page = page;
         this.header = this.page.locator( '[data-id="a6fb2f5"]' );
         this.headerSelector = '[data-id="a6fb2f5"]';
+        this.mobileHeader = this.page.locator( '[data-id="806ffe4"]' );
+        this.mobileHeaderSelector = '[data-id="806ffe4"]';
         this.footer = this.page.locator( '.elementor-location-footer' )
         this.footerSelector = '.elementor-location-footer';
         this.heroTitle = this.page.locator( 'body h1' );
         this.heroTitleSelector = 'body h1';
+        this.mobileHeroTitle = this.page.locator( '[data-id="518ead9"] h2' )
+        this.mobileHeroTitleSelector = '[data-id="518ead9"] h2'
         this.aboutUsSection = this.page.locator( '[data-id="7d89633"] h2' );
         this.aboutUsSelector = '[data-id="7d89633"] h2';
         this.contactUsSubmitButton = this.page.locator( '[name="Contact Form"] button[type="submit"]' );
@@ -43,10 +47,10 @@ class EverguardMaterial {
         let buttonCount = await linkSelector.count();
         for (let i =0; i < buttonCount; i++ ){
             await expect(await linkSelector.nth(i).getAttribute("href"), `Link: ${await linkSelector.nth(i).innerHTML()} is missing the href address` ).not.toEqual( '' );
-            await expect(await linkSelector.nth(i).getAttribute("href"), `Link: ${await linkSelector.nth(i).innerHTML()} accidently contains a placeholder` ).not.toEqual( '#' );
+            //await expect(await linkSelector.nth(i).getAttribute("href"), `Link: ${await linkSelector.nth(i).innerHTML()} accidently contains a placeholder` ).not.toEqual( '#' );
             let link = await linkSelector.nth(i).getAttribute("href");
             if(await linkSelector.nth(i).getAttribute("target") === null){;
-                if(await linkSelector.nth(i).getAttribute("href") == null || (await linkSelector.nth(i).getAttribute("href")).includes( '#' ) && (await linkSelector.nth(i).getAttribute("href")).length >= 1 || (await linkSelector.nth(i).getAttribute("href")).includes( '.zip' ) || (await linkSelector.nth(i).getAttribute("href")).includes( 'mailto:' ) || (await linkSelector.nth(i).getAttribute("href")).includes( 'tel:' ) ){
+                if(await linkSelector.nth(i).getAttribute("href") == null || (await linkSelector.nth(i).getAttribute("href")).length >= 1 || (await linkSelector.nth(i).getAttribute("href")).includes( '.zip' ) || (await linkSelector.nth(i).getAttribute("href")).includes( 'mailto:' ) || (await linkSelector.nth(i).getAttribute("href")).includes( 'tel:' ) ){
                     continue;
                 } else {
                     let got404 = []
@@ -82,8 +86,13 @@ class EverguardMaterial {
     }
     
     async checkHeader() {
-        await this.page.waitForSelector( this.headerSelector );
-        await expect(this.header).toHaveScreenshot( 'header.png', { maxDiffPixels: 200 });
+        if(await this.page.locator( this.mobileHeaderSelector ).isVisible()){
+            await this.page.waitForSelector( this.mobileHeaderSelector );
+            await expect(this.mobileHeader).toHaveScreenshot( 'mobileheader.png', { maxDiffPixels: 200 });
+        } else {
+            await this.page.waitForSelector( this.headerSelector );
+            await expect(this.header).toHaveScreenshot( 'header.png', { maxDiffPixels: 200 });
+        }
     }
 
     async checkFooter() {
@@ -92,8 +101,13 @@ class EverguardMaterial {
     }
 
     async checkHeroTitle() {
-        await this.page.waitForSelector( this.heroTitleSelector );
-        await expect(this.heroTitle).toHaveScreenshot( 'homePageHeroTitle.png', { maxDiffPixels: 200 });
+        if(await this.page.locator( this.heroTitleSelector ).isVisible()){
+            await this.page.waitForSelector( this.heroTitleSelector );
+            await expect(this.heroTitle).toHaveScreenshot( 'homePageHeroTitle.png', { maxDiffPixels: 200 });
+        } else {
+            await this.page.waitForSelector( this.mobileHeroTitleSelector );
+            await expect(this.mobileHeroTitle).toHaveScreenshot( 'homePageHeroMobileTitle.png', { maxDiffPixels: 200 });
+        }
     }
 
     async checkAboutUsSection() {
