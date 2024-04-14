@@ -54,36 +54,16 @@ class InlineFence {
 
 
         this.h1TestFailedURLs = [
-            "https://www.inline-fence.com/?internal_user=true",
-            "https://inline-fence.com/hog-wire-fence/?internal_user=true",
-            "https://inline-fence.com/financing/?internal_user=true",
-            "https://inline-fence.com/vinyl-fence/?internal_user=true",
-            "https://inline-fence.com/full-panel-fence/?internal_user=true",
-            "https://inline-fence.com/chain-link-fencing/?internal_user=true"
+            'https://www.inline-fence.com/?internal_user=true',
+            'https://inline-fence.com/commercial-residential-fence-bellevue/?internal_user=true',
+            'https://inline-fence.com/wooden-cedar-fences/?internal_user=true'
         ]
 
 
         this.brokenH2H3H4HeirarchyURLs = [
-            "https://www.inline-fence.com/?internal_user=true",
-            "https://inline-fence.com/about-inline-fence/?internal_user=true",
-            "https://inline-fence.com/horizontal-fence/?internal_user=true",
-            "https://inline-fence.com/vinyl-fence/?internal_user=true",
-            "https://inline-fence.com/hog-wire-fence/?internal_user=true",
-            "https://inline-fence.com/chain-link-fencing/?internal_user=true",
-            "https://inline-fence.com/wooden-cedar-fences/?internal_user=true",
-            "https://inline-fence.com/full-panel-fence/?internal_user=true",
-            "https://inline-fence.com/modified-full-panel/?internal_user=true",
-            "https://inline-fence.com/ornamental-iron/?internal_user=true",
-            "https://inline-fence.com/rambler-fence/?internal_user=true",
-            "https://inline-fence.com/add-on-options/?internal_user=true",
-            "https://inline-fence.com/financing/?internal_user=true",
-            "https://inline-fence.com/warranty/?internal_user=true",
-            "https://inline-fence.com/post-on-pipe/?internal_user=true",
-            "https://inline-fence.com/careers/?internal_user=true",
-            "https://inline-fence.com/quote/?internal_user=true",
-            "https://inline-fence.com/commercial-residential-fence-kirkland/?internal_user=true",
-            "https://inline-fence.com/commercial-residential-fence-bellevue/?internal_user=true",
-            "https://inline-fence.com/commercial-residential-fence-bothell/?internal_user=true"
+            'https://www.inline-fence.com/?internal_user=true',
+            'https://inline-fence.com/commercial-residential-fence-bellevue/?internal_user=true',
+            'https://inline-fence.com/wooden-cedar-fences/?internal_user=true'
         ]
 
         
@@ -115,16 +95,16 @@ class InlineFence {
         */
 
         //Kirkland Page
-        this.kirklandPageHeroSection = this.page.locator('[data-id="2703a07"]')
-        this.kirklandPageHeroSectionSelector = '[data-id="2703a07"]';
+        this.kirklandPageHeroSection = this.page.locator('body h1')
+        this.kirklandPageHeroSectionSelector = 'body h1';
 
         //Bellevue Page
-        this.bellevuePageHeroSection = this.page.locator('[data-id="2703a07"]')
-        this.bellevuePageHeroSectionSelector = '[data-id="2703a07"]';
+        this.bellevuePageHeroSection = this.page.locator('body h1')
+        this.bellevuePageHeroSectionSelector = 'body h1';
 
         //Bothell Page
-        this.bothellPageHeroSection = this.page.locator('[data-id="2703a07"]')
-        this.bothellPageHeroSectionSelector = '[data-id="2703a07"]';
+        this.bothellPageHeroSection = this.page.locator('body h1')
+        this.bothellPageHeroSectionSelector = 'body h1';
     }
 
     async checkButtons(page, url, selector){
