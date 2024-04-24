@@ -12,8 +12,8 @@ class InlineFence {
         this.aboutUsSection = this.page.locator( '[data-id="67e0f15"]' );
 
         // About Page
-        this.aboutPageHeroSectionText = this.page.locator('[data-id="5c890140"]');
-        this.aboutPageHeroSectionTextSelector = '[data-id="5c890140"]';
+        this.aboutPageHeroSectionText = this.page.locator('[data-id="7732674"] img');
+        this.aboutPageHeroSectionTextSelector = '[data-id="7732674"] img';
 
 
         // Horizontal Page
@@ -73,8 +73,8 @@ class InlineFence {
         this.addonOptionsPageHeroSectionSelector = '[data-id="798ff20"]';
 
         //Warranty Options Page
-        this.warrantyPageHeroSection = this.page.locator('[data-id="d5d3327"]')
-        this.warrantyPageHeroSectionSelector = '[data-id="d5d3327"]';
+        this.warrantyPageHeroSection = this.page.locator('[data-id="79a7112"]')
+        this.warrantyPageHeroSectionSelector = '[data-id="79a7112"]';
 
         //Post On Pipe Options Page
         this.postOnPipePageHeroSection = this.page.locator('[data-id="20f4dfa"]')
@@ -85,8 +85,8 @@ class InlineFence {
         this.careersPageHeroSectionSelector = '[data-id="38d1870"]';
 
         //Quote Page
-        this.quotePageHeroSection = this.page.locator('[data-id="9c8bd99"]')
-        this.quotePageHeroSectionSelector = '[data-id="9c8bd99"]';
+        this.quotePageHeroSection = this.page.locator('[data-id="65b04ae"]')
+        this.quotePageHeroSectionSelector = '[data-id="65b04ae"]';
 
 
 
