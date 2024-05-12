@@ -85,8 +85,8 @@ class InlineFence {
         this.careersPageHeroSectionSelector = '[data-id="38d1870"]';
 
         //Quote Page
-        this.quotePageHeroSection = this.page.locator('[data-id="65b04ae"]')
-        this.quotePageHeroSectionSelector = '[data-id="65b04ae"]';
+        this.quotePageHeroSection = this.page.locator('body h1')
+        this.quotePageHeroSectionSelector = 'body h1';
 
 
 
