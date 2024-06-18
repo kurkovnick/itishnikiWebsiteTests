@@ -17,40 +17,40 @@ class InlineFence {
 
 
         // Horizontal Page
-        this.horizontalPageHeroSection = this.page.locator('[data-id="0417232"]');
-        this.horizontalPageHeroSectionSelector = '[data-id="0417232"]';
+        this.horizontalPageHeroSection = this.page.locator('body h1');
+        this.horizontalPageHeroSectionSelector = 'body h1';
 
         // Full Panel Page
-        this.fullPanelPageHeroSection = this.page.locator('[data-id="ab82c51"]');
-        this.fullPanelPageHeroSectionSelector = '[data-id="ab82c51"]';
+        this.fullPanelPageHeroSection = this.page.locator('body h1');
+        this.fullPanelPageHeroSectionSelector = 'body h1';
 
         // Chain Link Page
-        this.chainlinkPageHeroSection = this.page.locator('[data-id="8899cad"]');
-        this.chainlinkPageHeroSectionSelector = '[data-id="8899cad"]';
+        this.chainlinkPageHeroSection = this.page.locator('body h1');
+        this.chainlinkPageHeroSectionSelector = 'body h1';
 
         // Hog Wire Page
-        this.hogWirePageHeroSection = this.page.locator('[data-id="e274c3b"]');
-        this.hogWirePageHeroSectionSelector = '[data-id="e274c3b"]';
+        this.hogWirePageHeroSection = this.page.locator('body h1');
+        this.hogWirePageHeroSectionSelector = 'body h1';
 
         // Vinyl Page
-        this.vinylPageHeroSection = this.page.locator('[data-id="c464796"]');
-        this.vinylPageHeroSectionSelector = '[data-id="c464796"]';
+        this.vinylPageHeroSection = this.page.locator('body h1');
+        this.vinylPageHeroSectionSelector = 'body h1';
 
         // Ornamental Iron Page
-        this.ornamentalIronPageHeroSection = this.page.locator('[data-id="34e9211"]');
-        this.ornamentalIronPageHeroSectionSelector = '[data-id="34e9211"]';
+        this.ornamentalIronPageHeroSection = this.page.locator('body h1');
+        this.ornamentalIronPageHeroSectionSelector = 'body h1';
 
         // Rambler Iron Page
-        this.ramblerPageHeroSection = this.page.locator('[data-id="795b3fc"]');
-        this.ramblerPageHeroSectionSelector = '[data-id="795b3fc"]';
+        this.ramblerPageHeroSection = this.page.locator('body h1');
+        this.ramblerPageHeroSectionSelector = 'body h1';
 
         // Modified Full Panel Page
-        this.modifiedFullPanelPageHeroSection = this.page.locator('[data-id="3c94634"]');
-        this.modifiedFullPanelPageHeroSectionSelector = '[data-id="3c94634"]';
+        this.modifiedFullPanelPageHeroSection = this.page.locator('body h1');
+        this.modifiedFullPanelPageHeroSectionSelector = 'body h1';
 
         //Wooden Fences Page
-        this.woodenFencesPageHeroSection = this.page.locator('[data-id="ecbf7d5"]')
-        this.woodenFencesPageHeroSectionSelector = '[data-id="ecbf7d5"]';
+        this.woodenFencesPageHeroSection = this.page.locator('body h1')
+        this.woodenFencesPageHeroSectionSelector = 'body h1';
 
 
         this.h1TestFailedURLs = [
