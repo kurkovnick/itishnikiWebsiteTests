@@ -12,8 +12,8 @@ class InlineFence {
         this.aboutUsSection = this.page.locator( '[data-id="67e0f15"]' );
 
         // About Page
-        this.aboutPageHeroSectionText = this.page.locator('[data-id="7732674"] img');
-        this.aboutPageHeroSectionTextSelector = '[data-id="7732674"] img';
+        this.aboutPageHeroSectionText = this.page.locator('body h1');
+        this.aboutPageHeroSectionTextSelector = 'body h1';
 
 
         // Horizontal Page
