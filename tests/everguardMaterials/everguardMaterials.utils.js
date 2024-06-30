@@ -20,8 +20,8 @@ class EverguardMaterial {
         this.seeInventoryButton = this.page.locator('[aria-label="See Inventory"]');
 
         // Material Calculator
-        this.pageTitleSectionSelector = '[data-id="4ca31c0"] h1';
-        this.pageTitleSection = this.page.locator('[data-id="4ca31c0"] h1');
+        this.pageTitleSectionSelector = 'body h1';
+        this.pageTitleSection = this.page.locator('body h1');
         this.fenceStyleField = this.page.locator('#fieldname1_1');
         this.approximateLinealFeet = this.page.locator( '#fieldname4_1');
         this.emailField = this.page.locator( '#fieldname30_1' );
